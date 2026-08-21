@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+     xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+     viewBox="0 0 600 300" 
+     width="100%" 
+     height="100%"
+     version="1.1"
+     id="opticslab-polarization-diagram"
+     inkscape:version="1.3"
+     sodipodi:docname="polarization_simulation.svg">
+
+  <title>3D Wave Polarization &amp; Poincaré Sphere Pure Diagram</title>
+  <desc>Pure 3D wave polarization diagram featuring linear wave trajectory, quarter-waveplate retarder, helical wave state, and Poincaré sphere visualizer without text or UI content.</desc>
+
+  <defs id="defs-polarization-diagram">
+    <linearGradient id="polarBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="60%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#f1f5f9"/>
+    </linearGradient>
+
+    <radialGradient id="poincareSurfaceGrad" cx="35%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="35%" stop-color="#38bdf8" stop-opacity="0.45"/>
+      <stop offset="75%" stop-color="#0284c7" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#e0f2fe" stop-opacity="0.9"/>
+    </radialGradient>
+
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feOffset dx="0" dy="3" result="offset"/>
+      <feComponentTransfer in="offset" result="shadow">
+        <feFuncA type="linear" slope="0.12"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="laserGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- LAYER 1: BACKGROUND & GRID -->
+  <g id="layer-1-bg" inkscape:groupmode="layer" inkscape:label="1. Background &amp; Grid">
+    <title>Layer 1: Diagram Background &amp; Axis</title>
+    <desc>Clean card container with optical wave trajectory axis line.</desc>
+
+    <rect width="600" height="300" rx="12" fill="url(#polarBg)" filter="url(#softShadow)"/>
+    <rect width="598" height="298" x="1" y="1" rx="11" fill="none" stroke="#e2e8f0" stroke-width="1.5"/>
+
+    <!-- Optical Axis Line -->
+    <line x1="30" y1="150" x2="300" y2="150" stroke="#cbd5e1" stroke-dasharray="3 3" stroke-width="1.5"/>
+  </g>
+
+  <!-- LAYER 2: PURE WAVE TRAJECTORY & RETARDER -->
+  <g id="layer-2-diagram" inkscape:groupmode="layer" inkscape:label="2. Pure Wave Trajectory &amp; Retarder">
+    <title>Layer 2: Wave Trajectory &amp; Quarter-Waveplate</title>
+    <desc>Linear wave oscillation curve, Quarter-Waveplate (λ/4), and elliptical/circular helical wave path.</desc>
+
+    <!-- Linear Polarization Wave (Purple) -->
+    <path id="linear-wave" 
+          d="M 30,150 Q 60,90 90,150 T 150,150 T 210,150 T 270,150" 
+          fill="none" 
+          stroke="#7c3aed" 
+          stroke-width="3" 
+          stroke-linecap="round" 
+          filter="url(#laserGlow)"/>
+
+    <!-- Quarter Waveplate Component -->
+    <g id="quarter-waveplate">
+      <rect x="175" y="80" width="14" height="140" fill="rgba(124, 58, 237, 0.15)" stroke="#7c3aed" stroke-width="1.5" rx="3" filter="url(#softShadow)"/>
+    </g>
+
+    <!-- Elliptical/Circular Helical Wave (Magenta) -->
+    <path id="helical-wave" 
+          d="M 189,150 C 205,100 225,100 235,150 C 245,200 265,200 275,150 C 285,100 305,100 315,150" 
+          fill="none" 
+          stroke="#db2777" 
+          stroke-width="3" 
+          stroke-linecap="round" 
+          filter="url(#laserGlow)"/>
+  </g>
+
+  <!-- LAYER 3: PURE 3D POINCARÉ SPHERE VISUALIZER -->
+  <g id="layer-3-poincare-sphere" inkscape:groupmode="layer" inkscape:label="3. Pure 3D Poincaré Sphere">
+    <title>Layer 3: Pure 3D Poincaré Sphere Visualizer</title>
+    <desc>Stokes S1, S2, S3 vector coordinate sphere with state trajectory point.</desc>
+
+    <g id="poincare-sphere-group" transform="translate(460, 150)">
+      <!-- 3D Sphere Glass Surface -->
+      <circle cx="0" cy="0" r="75" fill="url(#poincareSurfaceGrad)" stroke="#0284c7" stroke-width="2" filter="url(#softShadow)"/>
+      <ellipse cx="0" cy="0" rx="75" ry="30" fill="none" stroke="#0284c7" stroke-width="1" stroke-dasharray="4 4" opacity="0.6"/>
+      <ellipse cx="0" cy="0" rx="30" ry="75" fill="none" stroke="#7c3aed" stroke-width="1" stroke-dasharray="4 4" opacity="0.6"/>
+
+      <!-- Stokes Coordinate Axes -->
+      <line x1="-90" y1="0" x2="90" y2="0" stroke="#64748b" stroke-width="1.5"/>
+      <line x1="0" y1="-90" x2="0" y2="90" stroke="#64748b" stroke-width="1.5"/>
+
+      <!-- Polarization State Arc & Point -->
+      <path d="M 0,75 Q 40,40 60,-10 Q 50,-50 0,-75" fill="none" stroke="#0284c7" stroke-width="2" stroke-dasharray="3 3"/>
+      <circle cx="60" cy="-10" r="6.5" fill="#db2777" filter="url(#laserGlow)"/>
+      <circle cx="60" cy="-10" r="2.5" fill="#ffffff"/>
+    </g>
+  </g>
+</svg>

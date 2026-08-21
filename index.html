@@ -1,78 +1,861 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>OpticsLAB - 3D Light Ray Tracing & Optics Simulator</title>
-  <meta name="description" content="OpticsLAB is an easy-to-use desktop application for 3D optics simulation, light ray tracing, and light wave polarization.">
+  <meta name="description"
+    content="OpticsLAB is an easy-to-use desktop application for 3D optics simulation, light ray tracing, working examples, and wave polarization analysis.">
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
   <header>
     <nav>
-      <a href="index.html" class="logo">Optics<span>LAB</span></a>
+      <a href="#home" class="logo">
+        <img src="images/opticslab_icon.svg" alt="OpticsLAB Logo" class="brand-logo-img" style="height: 34px; width: 34px; vertical-align: middle; margin-right: 6px;">
+        Optics<span>LAB</span>
+        <span class="logo-badge">3D</span>
+      </a>
+
       <div class="nav-right">
+        <!-- GUI Live Search Bar -->
+        <div class="nav-search">
+          <span class="nav-search-icon">🔍</span>
+          <input type="text" id="searchInput" class="nav-search-input" placeholder="Search examples, gallery, FAQ..."
+            aria-label="Search software topics">
+          <span id="searchShortcut" class="nav-search-shortcut">Ctrl K</span>
+          <button id="searchClearBtn" class="nav-search-clear" aria-label="Clear search">&times;</button>
+        </div>
+
         <button id="mobileMenuBtn" class="mobile-menu-btn" aria-label="Toggle navigation menu">☰ Menu</button>
         <ul class="nav-links" id="navLinks">
-          <li><a href="index.html" class="active">Home</a></li>
-          <li><a href="about.html">Mission</a></li>
-          <li><a href="tutorials.html">Tutorials</a></li>
-          <li><a href="presets.html">Presets</a></li>
-          <li><a href="changelog.html">Changelog</a></li>
-          <li><a href="community.html">Community</a></li>
-          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="#mission">Mission</a></li>
+          <li><a href="#downloads">Downloads</a></li>
+          <li><a href="#working-examples">Working Examples</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#tutorials">Tutorials</a></li>
+          <li><a href="#changelog">Changelog</a></li>
+          <li><a href="#community">Community</a></li>
+          <li><a href="#faq">FAQ</a></li>
         </ul>
         <button id="themeToggleBtn" class="theme-toggle-btn" aria-label="Toggle theme">☀️ Light</button>
+
+        <!-- Accent Color Picker Dropdown -->
+        <div class="color-picker-container">
+          <button id="colorPickerBtn" class="color-picker-btn" aria-label="Choose accent theme color">
+            🎨 Color
+          </button>
+          <div id="colorPaletteMenu" class="color-palette-menu" aria-label="Color Theme Options">
+            <div class="color-picker-header">Accent Theme</div>
+            <div class="color-swatches-grid">
+              <button class="color-swatch swatch-blue active" data-color="blue" title="Electric Blue (Default)"></button>
+              <button class="color-swatch swatch-green" data-color="green" title="Emerald Green"></button>
+              <button class="color-swatch swatch-purple" data-color="purple" title="Violet Purple"></button>
+              <button class="color-swatch swatch-red" data-color="red" title="Crimson Red"></button>
+              <button class="color-swatch swatch-amber" data-color="amber" title="Amber Gold"></button>
+              <button class="color-swatch swatch-teal" data-color="teal" title="Teal Cyan"></button>
+            </div>
+          </div>
+        </div>
       </div>
     </nav>
   </header>
 
   <main class="container">
-    <div class="hero">
-      <h1>Simple 3D Optics & Light Ray Simulator</h1>
-      <p>OpticsLAB is a beginner-friendly desktop software for designing optical setups in 3D, simulating light bending through lenses and mirrors, and viewing light polarization.</p>
-      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-        <a href="about.html" class="btn btn-primary">Download Software (.exe / .deb / .dmg)</a>
-        <a href="presets.html" class="btn">Explore Sample Files</a>
-      </div>
+    <!-- Live Search Results Indicator -->
+    <div id="searchStatusBar" class="search-status-bar">
+      <span id="searchStatusText">Showing matching results...</span>
+      <button class="search-clear-btn" onclick="clearLiveSearch()">Clear Filter</button>
     </div>
+    <!-- SECTION 1: HOME -->
+    <section id="home">
+      <div class="hero">
+        <h1>Simple 3D Optics & Light Ray Simulator</h1>
+        <p>OpticsLAB is a beginner-friendly desktop software for designing optical setups in 3D, simulating light
+          bending through lenses and mirrors, and viewing light polarization.</p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="#working-examples" class="btn btn-primary">Explore Working Examples</a>
+          <a href="#gallery" class="btn">View 3D Visual Gallery</a>
+        </div>
+      </div>
 
-    <div class="grid-3" style="margin-top: 2rem;">
-      <div class="card">
-        <span class="tag">Visual Workspace</span>
-        <h3>Easy Dockable Panels</h3>
-        <p>Simple desktop interface with panels to add lenses, adjust properties, position light sources, and view light spot plots.</p>
+      <div class="grid-3" style="margin-top: 2.5rem;">
+        <div class="card">
+          <span class="tag">Visual Workspace</span>
+          <h3>Easy Dockable Panels</h3>
+          <p>Simple desktop interface with panels to add lenses, adjust properties, position light sources, and view
+            light spot plots.</p>
+        </div>
+        <div class="card">
+          <span class="tag">3D Light Simulator</span>
+          <h3>Automatic Ray Tracing</h3>
+          <p>Trace light rays through glass lenses, curved mirrors, and flat screens automatically in full 3D
+            interactive view.</p>
+        </div>
+        <div class="card">
+          <span class="tag">Light Waves</span>
+          <h3>Polarization 3D View</h3>
+          <p>Visualize light wave direction and polarization changes clearly on an interactive 3D sphere.</p>
+        </div>
       </div>
-      <div class="card">
-        <span class="tag">3D Light Simulator</span>
-        <h3>Automatic Ray Tracing</h3>
-        <p>Trace light rays through glass lenses, curved mirrors, and flat screens automatically in full 3D interactive view.</p>
-      </div>
-      <div class="card">
-        <span class="tag">Light Waves</span>
-        <h3>Polarization 3D View</h3>
-        <p>Visualize light wave direction and polarization changes clearly on an interactive 3D sphere.</p>
-      </div>
-    </div>
 
-    <div class="grid-2" style="margin-top: 2.5rem;">
-      <div class="card">
-        <span class="tag">Real Glass Types</span>
-        <h3>Glass Material Catalog</h3>
-        <p>Select standard optical glass types for realistic light bending and color focus.</p>
+      <div class="grid-2" style="margin-top: 1.5rem;">
+        <div class="card">
+          <span class="tag">Real Glass Types</span>
+          <h3>Glass Material Catalog</h3>
+          <p>Select standard optical glass types for realistic light bending and color focus.</p>
+        </div>
+        <div class="card">
+          <span class="tag">Cross-Platform</span>
+          <h3>Desktop Software Engine</h3>
+          <p>Run OpticsLAB on Windows, Linux, or macOS with native high-performance rendering.</p>
+        </div>
       </div>
-      <div class="card">
-        <span class="tag">Cross-Platform</span>
-        <h3>Desktop App Installers</h3>
-        <p>Run OpticsLAB on Windows (.exe), Linux (.deb), or macOS (.dmg) with easy desktop installers.</p>
+    </section>
+
+    <!-- SECTION 2: MISSION -->
+    <section id="mission">
+      <h2 class="section-title">Project Mission</h2>
+      <p class="section-desc">Making 3D optical design and light ray tracing simple and accessible for everyone.</p>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>Project Goal</h3>
+          <p>OpticsLAB is built as a complete desktop software application to help students, researchers, and engineers
+            design optical systems in 3D without needing programming or coding skills.</p>
+        </div>
+        <div class="card">
+          <h3>Polarization Visualizer</h3>
+          <p>In addition to tracing light rays through lenses, OpticsLAB makes light wave polarization easy to
+            understand by visualizing vector states on an interactive 3D sphere.</p>
+        </div>
       </div>
-    </div>
+
+      <!-- Team Section -->
+      <h2 class="section-title" style="margin-top: 3rem;">Project Team</h2>
+      <p class="section-desc">The key team members building and driving OpticsLAB.</p>
+
+      <!-- Project Lead -->
+      <div class="team-card leader">
+        <div class="team-avatar">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+          </svg>
+        </div>
+        <span class="tag">Project Lead</span>
+        <h3 class="team-name">Phanindra</h3>
+        <p class="team-role">Project Manager</p>
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0;">Overseeing project development,
+          milestone planning, and team direction for OpticsLAB.</p>
+      </div>
+
+      <!-- Team Members -->
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-avatar">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+            </svg>
+          </div>
+          <h3 class="team-name">Jayant Rao</h3>
+          <p class="team-role">Simulation</p>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0;">Focusing on 3D optical ray tracing
+            algorithms, surface geometry, and physics simulations.</p>
+        </div>
+
+        <div class="team-card">
+          <div class="team-avatar">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+            </svg>
+          </div>
+          <h3 class="team-name">Saran</h3>
+          <p class="team-role">Software</p>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0;">Developing core software
+            architecture, 3D graphics renderer, and desktop app interfaces.</p>
+      </div>
+    </section>
+
+    <!-- SECTION 3: DESKTOP SOFTWARE DOWNLOADS -->
+    <section id="downloads">
+      <h2 class="section-title">OpticsLAB Desktop Installers</h2>
+      <p class="section-desc">Download official OpticsLAB 3D optics simulation desktop application for Windows, Linux (Ubuntu/Debian), and macOS.</p>
+
+      <div class="grid-3">
+        <!-- Windows Installer -->
+        <div class="card" style="text-align: center;">
+          <div class="os-logo-box">
+            <img src="images/windows_logo.svg" alt="Windows Logo" class="os-logo-img">
+          </div>
+          <span class="tag">Windows 10 & 11</span>
+          <h3>Windows Installer</h3>
+          <p>Official 64-bit setup wizard for Windows 10 & 11. Includes full 3D ray tracing engine and optical glass catalog.</p>
+          <button onclick="downloadInstaller('windows')" class="btn btn-primary" style="width: 100%; margin-top: 1.25rem;">
+            Download .exe
+          </button>
+        </div>
+
+        <!-- Ubuntu / Linux -->
+        <div class="card" style="text-align: center;">
+          <div class="os-logo-box">
+            <img src="images/ubuntu_logo.svg" alt="Ubuntu Linux Logo" class="os-logo-img">
+          </div>
+          <span class="tag">Linux Debian / Ubuntu</span>
+          <h3>Ubuntu Package</h3>
+          <p>Native <code>.deb</code> package for Ubuntu, Debian, Mint, and derivative Linux distributions (64-bit).</p>
+          <button onclick="downloadInstaller('ubuntu')" class="btn btn-primary" style="width: 100%; margin-top: 1.25rem;">
+            Download .deb
+          </button>
+        </div>
+
+        <!-- macOS -->
+        <div class="card" style="text-align: center;">
+          <div class="os-logo-box">
+            <img src="images/mac_logo.svg" alt="macOS Logo" class="os-logo-img">
+          </div>
+          <span class="tag">macOS Intel / Apple Silicon</span>
+          <h3>macOS Package</h3>
+          <p>Universal <code>.dmg</code> disk image for macOS supporting both Intel processors and Apple Silicon M1/M2/M3 chips.</p>
+          <button onclick="downloadInstaller('mac')" class="btn btn-primary" style="width: 100%; margin-top: 1.25rem;">
+            Download .dmg
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: WORKING EXAMPLES -->
+    <section id="working-examples">
+      <h2 class="section-title">Working Examples</h2>
+      <p class="section-desc">Download ready-to-load 3D optical setup project files (<code>.opl</code>) to import
+        directly into OpticsLAB via <code>File > Open Project</code>.</p>
+
+      <div class="grid-2">
+        <!-- Example 1 -->
+        <div class="card">
+          <span class="tag">Prism Setup</span>
+          <h3>Glass Prism Light Bending</h3>
+          <p>Sample project file with a 60-degree glass prism and multi-ray light source ready for 3D dispersion
+            simulation.</p>
+          <div class="example-preview-box">
+            <span class="example-preview-overlay">Preview Screenshot</span>
+            <img src="images/prism_simulation.svg" alt="Glass Prism Light Dispersion Screenshot">
+          </div>
+          <button class="btn btn-primary" onclick="downloadSampleFile('prism_setup')">Download .opl File</button>
+        </div>
+
+        <!-- Example 2 -->
+        <div class="card">
+          <span class="tag">Lens Focus</span>
+          <h3>Lens Focus Setup</h3>
+          <p>Sample project file focusing light rays through a convex lens onto a detector spot diagram screen.</p>
+          <div class="example-preview-box">
+            <span class="example-preview-overlay">Preview Screenshot</span>
+            <img src="images/lens_simulation.svg" alt="Lens Focus Setup Screenshot">
+          </div>
+          <button class="btn btn-primary" onclick="downloadSampleFile('lens_setup')">Download .opl File</button>
+        </div>
+
+        <!-- Example 3 -->
+        <div class="card">
+          <span class="tag">Telescope</span>
+          <h3>Two-Mirror Telescope</h3>
+          <p>Sample project file containing a primary parabolic mirror and secondary mirror system.</p>
+          <div class="example-preview-box">
+            <span class="example-preview-overlay">Preview Screenshot</span>
+            <img src="images/telescope_simulation.svg" alt="Two-Mirror Telescope Screenshot">
+          </div>
+          <button class="btn btn-primary" onclick="downloadSampleFile('telescope_setup')">Download .opl File</button>
+        </div>
+
+        <!-- Example 4 -->
+        <div class="card">
+          <span class="tag">Polarization</span>
+          <h3>Light Wave Polarization</h3>
+          <p>Sample project file configured with waveplate retarders and 3D polarization sphere tracking.</p>
+          <div class="example-preview-box">
+            <span class="example-preview-overlay">Preview Screenshot</span>
+            <img src="images/polarization_simulation.svg" alt="Light Wave Polarization Screenshot">
+          </div>
+          <button class="btn btn-primary" onclick="downloadSampleFile('polarization_setup')">Download .opl File</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: GALLERY -->
+    <section id="gallery">
+      <h2 class="section-title">3D Optics Visual Gallery</h2>
+      <p class="section-desc">Explore high-resolution screenshots of 3D optical ray tracing, polarization vectors, and
+        workspace tools built with OpticsLAB. Click any image to view in detail.</p>
+
+      <div class="gallery-grid">
+        <!-- Item 1 -->
+        <div class="gallery-card">
+          <div class="gallery-img-wrapper">
+            <img src="images/prism_simulation.svg" alt="Glass Prism Dispersion 3D View">
+            <div class="gallery-zoom-trigger">
+              <span class="gallery-zoom-badge">🔍 Zoom View</span>
+            </div>
+          </div>
+          <div class="gallery-content">
+            <span class="tag">3D Refraction</span>
+            <h4>Glass Prism Light Refraction</h4>
+            <p>Monochromatic laser ray splitting into a multi-wavelength spectrum as it refracts through N-BK7 glass.
+            </p>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="gallery-card">
+          <div class="gallery-img-wrapper">
+            <img src="images/lens_simulation.svg" alt="Biconvex Lens Focal Spot Diagram">
+            <div class="gallery-zoom-trigger">
+              <span class="gallery-zoom-badge">🔍 Zoom View</span>
+            </div>
+          </div>
+          <div class="gallery-content">
+            <span class="tag">Ray Focus</span>
+            <h4>Lens Focal Point & Spot Diagram</h4>
+            <p>Parallel ray bundle converging to a diffraction-limited focal spot on a detector screen.</p>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="gallery-card">
+          <div class="gallery-img-wrapper">
+            <img src="images/telescope_simulation.svg" alt="Cassegrain Two-Mirror Telescope">
+            <div class="gallery-zoom-trigger">
+              <span class="gallery-zoom-badge">🔍 Zoom View</span>
+            </div>
+          </div>
+          <div class="gallery-content">
+            <span class="tag">Mirror Systems</span>
+            <h4>Cassegrain Two-Mirror Telescope</h4>
+            <p>Parabolic primary mirror and hyperbolic secondary mirror reflecting starlight to an eyepiece detector.
+            </p>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="gallery-card">
+          <div class="gallery-img-wrapper">
+            <img src="images/polarization_simulation.svg" alt="3D Wave Polarization Poincaré Sphere">
+            <div class="gallery-zoom-trigger">
+              <span class="gallery-zoom-badge">🔍 Zoom View</span>
+            </div>
+          </div>
+          <div class="gallery-content">
+            <span class="tag">Wave Vector</span>
+            <h4>Poincaré Sphere Polarization Tracking</h4>
+            <p>Tracking Stokes polarization state transitions through quarter-wave and half-wave retarders.</p>
+          </div>
+        </div>
+
+        <!-- Item 5 -->
+        <div class="gallery-card">
+          <div class="gallery-img-wrapper">
+            <img src="images/workspace_ui.svg" alt="OpticsLAB Desktop App Workspace UI">
+            <div class="gallery-zoom-trigger">
+              <span class="gallery-zoom-badge">🔍 Zoom View</span>
+            </div>
+          </div>
+          <div class="gallery-content">
+            <span class="tag">Desktop App UI</span>
+            <h4>OpticsLAB Visual Workspace Panels</h4>
+            <p>Interactive 3D viewport surrounded by dockable component tree, property editor, and live plot displays.
+            </p>
+          </div>
+        </div>
+
+        <!-- Item 6 -->
+        <div class="gallery-card">
+          <div class="gallery-img-wrapper">
+            <img src="images/interferometer.svg" alt="Michelson Interferometer Setup">
+            <div class="gallery-zoom-trigger">
+              <span class="gallery-zoom-badge">🔍 Zoom View</span>
+            </div>
+          </div>
+          <div class="gallery-content">
+            <span class="tag">Interferometry</span>
+            <h4>Michelson Interferometer Fringes</h4>
+            <p>Beam splitting and circular interference fringe pattern generation measured at detector plane.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gallery Lightbox Modal -->
+      <div id="galleryModal" class="gallery-modal" aria-hidden="true">
+        <div class="gallery-modal-content">
+          <button id="galleryModalClose" class="gallery-modal-close" aria-label="Close modal">&times;</button>
+          <img id="galleryModalImg" src="" alt="Enlarged gallery view">
+          <div id="galleryModalCaption" class="gallery-modal-caption"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: TUTORIALS -->
+    <section id="tutorials">
+      <h2 class="section-title">Video Tutorials & Feature Guides</h2>
+      <p class="section-desc">Watch software demonstrations and learn how to build 3D optical setups, position lenses,
+        and view polarization.</p>
+
+      <div class="tab-nav">
+        <button class="tab-btn active" data-target="getting-started"
+          onclick="switchTutorialCategory('getting-started')">Getting Started</button>
+        <button class="tab-btn" data-target="visual-tools" onclick="switchTutorialCategory('visual-tools')">Visual 3D
+          Tools</button>
+        <button class="tab-btn" data-target="polarization-analysis"
+          onclick="switchTutorialCategory('polarization-analysis')">Light Polarization</button>
+        <button class="tab-btn" data-target="gui-panels" onclick="switchTutorialCategory('gui-panels')">Workspace
+          Panels</button>
+      </div>
+
+      <!-- Category 1: Getting Started -->
+      <div id="getting-started" class="tutorial-group grid-2">
+        <div class="card">
+          <div class="example-preview-box">
+            <span class="example-preview-overlay">▶ Video Guide (4:12)</span>
+            <img src="images/workspace_ui.svg" alt="Software Overview Guide">
+          </div>
+          <span class="tag">Overview</span>
+          <h3>1. OpticsLAB Desktop Overview</h3>
+          <p>Get a tour of the OpticsLAB desktop application interface, toolbars, optical catalog, and 3D controls.</p>
+        </div>
+        <div class="card">
+          <div class="example-preview-box">
+            <span class="example-preview-overlay">▶ Video Guide (2:45)</span>
+            <img src="images/prism_simulation.svg" alt="Opening Sample Files">
+          </div>
+          <span class="tag">Working Examples</span>
+          <h3>2. Loading .opl Project Files</h3>
+          <p>Learn how to open downloaded <code>.opl</code> project files using the <code>File > Open Project</code>
+            menu inside OpticsLAB.</p>
+        </div>
+      </div>
+
+      <!-- Category 2: Visual 3D Tools -->
+      <div id="visual-tools" class="tutorial-group grid-2" style="display: none;">
+        <div class="card">
+          <div class="example-preview-box">
+            <span class="example-preview-overlay">▶ Video Guide (5:10)</span>
+            <img src="images/prism_simulation.svg" alt="Glass Prism Light Bending Tutorial">
+          </div>
+          <span class="tag">Prism Setup</span>
+          <h3>Glass Prism Light Bending Setup</h3>
+          <p>Watch how light rays bend through a 60-degree glass prism in the 3D interactive view window.</p>
+        </div>
+        <div class="card">
+          <div class="example-preview-box">
+            <span class="example-preview-overlay">▶ Video Guide (3:30)</span>
+            <img src="images/lens_simulation.svg" alt="Focus Light with a Lens Tutorial">
+          </div>
+          <span class="tag">Lens Focus</span>
+          <h3>Lens Focusing & Detector Screen Setup</h3>
+          <p>Learn how to place convex lenses and position detector screens to view light focal spots.</p>
+        </div>
+      </div>
+
+      <!-- Category 3: Light Polarization -->
+      <div id="polarization-analysis" class="tutorial-group grid-2" style="display: none;">
+        <div class="card">
+          <div class="example-preview-box">
+            <span class="example-preview-overlay">▶ Video Guide (6:05)</span>
+            <img src="images/polarization_simulation.svg" alt="3D Polarization Sphere Tutorial">
+          </div>
+          <span class="tag">3D Sphere</span>
+          <h3>3D Wave Polarization Sphere Guide</h3>
+          <p>Watch how light wave polarization transitions are plotted and visualised on the 3D interactive sphere.</p>
+        </div>
+        <div class="card">
+          <div class="example-preview-box">
+            <span class="example-preview-overlay">▶ Video Guide (4:50)</span>
+            <img src="images/polarization_simulation.svg" alt="Waveplate Retarders Tutorial">
+          </div>
+          <span class="tag">Waveplates</span>
+          <h3>Waveplates & Polarization Retarders</h3>
+          <p>Understand how quarter-wave and half-wave plates alter light wave polarization inside the visual setup.</p>
+        </div>
+      </div>
+
+      <!-- Category 4: Workspace Panels -->
+      <div id="gui-panels" class="tutorial-group grid-2" style="display: none;">
+        <div class="card">
+          <div class="example-preview-box">
+            <span class="example-preview-overlay">▶ Video Guide (3:15)</span>
+            <img src="images/workspace_ui.svg" alt="Light Source Panel Tutorial">
+          </div>
+          <span class="tag">Light Source</span>
+          <h3>Light Source & Beam Launcher Panel</h3>
+          <p>Learn how to configure light source patterns (point rays, circular beams, rectangular bundles) and ray
+            counts.</p>
+        </div>
+        <div class="card">
+          <div class="example-preview-box">
+            <span class="example-preview-overlay">▶ Video Guide (4:20)</span>
+            <img src="images/lens_simulation.svg" alt="Properties & Spot Plot Panels Tutorial">
+          </div>
+          <span class="tag">Properties & Plots</span>
+          <h3>Properties Editor & Spot Diagram Plots</h3>
+          <p>Discover how to adjust lens curvature live in the editor panel and inspect focal spot distribution plots.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: CHANGELOG -->
+    <section id="changelog">
+      <h2 class="section-title">Changelog & Project Updates</h2>
+      <p class="section-desc">Simple update history for the OpticsLAB project.</p>
+
+      <div class="timeline-item">
+        <div class="timeline-version">Recent System Updates (v2.4)</div>
+        <div class="timeline-date">Latest Updates</div>
+        <ul class="timeline-list">
+          <li><strong>Performance:</strong> Added multi-core processing support for faster ray tracing calculations.
+          </li>
+          <li><strong>Optical Designs:</strong> Added multi-surface mirror designs and specialized lens test setups.
+          </li>
+          <li><strong>Detector Displays:</strong> Updated detector screens to support multiple screens simultaneously.
+          </li>
+          <li><strong>Analysis Tools:</strong> Added energy distribution and ray focus analysis tools.</li>
+          <li><strong>Workspace Panels:</strong> Connected light source controls directly with the main components tree.
+          </li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-version">Workspace & Surface Updates</div>
+        <div class="timeline-date">Previous Milestone Commits</div>
+        <ul class="timeline-list">
+          <li><strong>Panels & Controls:</strong> Updated property editor, light source panel, and added workspace
+            load/save options.</li>
+          <li><strong>Surfaces & Geometries:</strong> Added support for rectangular, parabolic, and custom shape
+            surfaces.</li>
+          <li><strong>Materials:</strong> Integrated standard optical glass catalog for real material properties.</li>
+          <li><strong>Working Examples Library:</strong> Added starter <code>.opl</code> project files for prisms,
+            lenses, mirror systems, and waveplates.</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-version">Core Engine Foundation</div>
+        <div class="timeline-date">Initial Base Code</div>
+        <ul class="timeline-list">
+          <li>Initial release of the 3D ray tracing engine.</li>
+          <li>Interactive 3D rendering view and 3D wave polarization sphere.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SECTION 7: COMMUNITY & FEEDBACK -->
+    <section id="community">
+      <h2 class="section-title">Community & Feedback</h2>
+      <p class="section-desc">OpticsLAB is built by the community. We welcome suggestions, bug reports, and new ideas!
+      </p>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>Ways to Help</h3>
+          <p>You can contribute to OpticsLAB easily:</p>
+          <ul style="padding-left: 1.25rem; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">
+            <li>Test the app and report any bugs.</li>
+            <li>Suggest new lens types or feature ideas.</li>
+            <li>Share starter code examples for beginners.</li>
+            <li>Help improve documentation and guides.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Send Feedback / Report Bug</h3>
+          <form class="feedback-form" id="issueForm" onsubmit="handleIssueSubmit(event)">
+            <div class="form-group">
+              <select id="issueType" required>
+                <option value="">Select Category</option>
+                <option value="Light Ray Simulation">Light Ray Simulation Bug</option>
+                <option value="App Window">Visual App Window / Panel Issue</option>
+                <option value="Polarization View">Polarization / 3D Sphere</option>
+                <option value="New Feature Idea">New Feature Idea</option>
+                <option value="General Question">General Question</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <input type="text" id="issueTitle" placeholder="Summary (e.g., Prism angle input error)" required />
+            </div>
+            <div class="form-group">
+              <textarea id="issueDetails" placeholder="Tell us what happened or describe your idea..."
+                required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit Ticket</button>
+            <p id="formResponse" style="margin-top: 1rem; display: none; font-size: 0.9rem;"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 8: FREQUENTLY ASKED QUESTIONS -->
+    <section id="faq">
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <p class="section-desc">Everything you need to know about downloading, installing, and using OpticsLAB 3D optics
+        simulation software.</p>
+
+      <!-- General Software Questions -->
+      <h3 style="font-size: 1.15rem; margin: 1.5rem 0 1rem; color: var(--accent);">General Software Questions</h3>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>What is OpticsLAB?</span>
+          <span class="icon">+</span>
+        </div>
+        <div class="faq-answer">
+          OpticsLAB is a beginner-friendly desktop software for 3D optics simulation, light ray tracing through lenses
+          and mirrors, and 3D wave polarization analysis.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>What operating systems are supported?</span>
+          <span class="icon">+</span>
+        </div>
+        <div class="faq-answer">
+          OpticsLAB runs natively on Windows 10 & 11 (64-bit), Linux distributions (Debian, Ubuntu, Mint), and macOS
+          (both Intel and Apple Silicon processors).
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Do I need programming or coding knowledge to use OpticsLAB?</span>
+          <span class="icon">+</span>
+        </div>
+        <div class="faq-answer">
+          No coding knowledge is required! OpticsLAB is a complete visual desktop software application with interactive
+          workspace panels, property editors, and downloadable sample project files.
+        </div>
+      </div>
+
+      <!-- Software Features & Tools -->
+      <h3 style="font-size: 1.15rem; margin: 2rem 0 1rem; color: var(--accent);">Features & Simulation Tools</h3>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>What optical components are available in the software?</span>
+          <span class="icon">+</span>
+        </div>
+        <div class="faq-answer">
+          OpticsLAB includes convex and concave lenses, flat and parabolic mirrors, glass prisms, detector screens,
+          light sources (point rays, circular beams, rectangular bundles), waveplates, and polarizers.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>How does light ray tracing work in OpticsLAB?</span>
+          <span class="icon">+</span>
+        </div>
+        <div class="faq-answer">
+          Light ray paths are automatically calculated in 3D space based on physical laws of reflection off mirrors and
+          light bending (refraction) as light passes through glass surfaces.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>How do I view light wave polarization?</span>
+          <span class="icon">+</span>
+        </div>
+        <div class="faq-answer">
+          OpticsLAB includes a dedicated 3D Polarization Viewer sphere that tracks and plots light wave vector
+          orientation changes as light travels through waveplates and retarders.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Can I choose real optical glass materials?</span>
+          <span class="icon">+</span>
+        </div>
+        <div class="faq-answer">
+          Yes! OpticsLAB features a built-in optical glass material catalog, allowing you to assign standard glass types
+          to lenses for realistic light bending and color focus.
+        </div>
+      </div>
+
+      <!-- Projects, Working Examples & Support -->
+      <h3 style="font-size: 1.15rem; margin: 2rem 0 1rem; color: var(--accent);">Projects & Working Examples</h3>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>How do I open working example files (.opl) in the software?</span>
+          <span class="icon">+</span>
+        </div>
+        <div class="faq-answer">
+          Download <code>.opl</code> project files from the Working Examples section above and open them using
+          <code>File > Open Project</code> inside the OpticsLAB software window.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>How do I measure light focus and spot diagrams?</span>
+          <span class="icon">+</span>
+        </div>
+        <div class="faq-answer">
+          Position a detector screen anywhere in 3D space, and use the built-in Plots panel to inspect light spot
+          distribution, focal points, and ray density.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Can I save and export my custom optical setups?</span>
+          <span class="icon">+</span>
+        </div>
+        <div class="faq-answer">
+          Yes! You can save your 3D optical bench setups as <code>.opl</code> files using
+          <code>File > Save Project</code> and reload them anytime to continue working or share with team members.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Is OpticsLAB free to use?</span>
+          <span class="icon">+</span>
+        </div>
+        <div class="faq-answer">
+          Yes, OpticsLAB is free to use for scientific research, educational learning, and optical design.
+        </div>
+      </div>
+    </section>
   </main>
 
-  <footer>
-    <p>&copy; OpticsLAB Project. 3D Optics Simulation Software.</p>
+  <!-- LIGHTTRANS INSPIRED PREMIUM FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <!-- Column 1: Brand & Slogan -->
+        <div class="footer-col brand-col">
+          <a href="#home" class="logo footer-logo">
+            <img src="images/opticslab_icon.svg" alt="OpticsLAB Logo" class="brand-logo-img" style="height: 34px; width: 34px; vertical-align: middle; margin-right: 6px;">
+            Optics<span>LAB</span> <span class="logo-badge">3D</span>
+          </a>
+          <p class="footer-desc">
+            Next-generation desktop software application for 3D optical ray tracing, lens design, mirror reflection systems, and wave polarization simulation.
+          </p>
+
+          <div class="footer-social-links">
+            <a href="#downloads" title="Desktop Installers">💻 Installers</a>
+            <a href="#community" title="Community Center">💬 Community</a>
+            <a href="#faq" title="Frequently Asked Questions">❓ FAQ Help</a>
+          </div>
+        </div>
+
+        <!-- Column 2: Software Capabilities -->
+        <div class="footer-col">
+          <h4 class="footer-title">Software Features</h4>
+          <ul class="footer-links">
+            <li><a href="#home">3D Ray Tracing Engine</a></li>
+            <li><a href="#working-examples">Working Examples (.opl)</a></li>
+            <li><a href="#gallery">3D Optics Visual Gallery</a></li>
+            <li><a href="#tutorials">Video Tutorials & Guides</a></li>
+            <li><a href="#changelog">Changelog & Updates</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Desktop Installers -->
+        <div class="footer-col">
+          <h4 class="footer-title">Desktop Downloads</h4>
+          <ul class="footer-links">
+            <li><a href="#downloads" onclick="downloadInstaller('windows')">🪟 Windows Installer (.exe)</a></li>
+            <li><a href="#downloads" onclick="downloadInstaller('ubuntu')">🐧 Ubuntu Linux Package (.deb)</a></li>
+            <li><a href="#downloads" onclick="downloadInstaller('mac')">🍎 macOS Package (.dmg)</a></li>
+            <li><a href="#working-examples">Sample Project Files (.opl)</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Project & Team -->
+        <div class="footer-col">
+          <h4 class="footer-title">Project & Team</h4>
+          <ul class="footer-links">
+            <li><a href="#mission">Phanindra - Project Lead</a></li>
+            <li><a href="#mission">Jayant Rao - Simulation</a></li>
+            <li><a href="#mission">Saran - Software</a></li>
+            <li><a href="#community">Community Feedback Center</a></li>
+            <li><a href="#faq">Software Requirements FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Footer Bottom Bar -->
+      <div class="footer-bottom">
+        <p>&copy; 2026 OpticsLAB Project. Free & Open Optical Simulation Desktop Software.</p>
+        <div class="footer-bottom-links">
+          <a href="#home">Back to Top ↑</a>
+        </div>
+      </div>
+    </div>
   </footer>
+
+  <!-- Floating Accessibility Widget (UserWay / iiap.res.in Style) -->
+  <button id="a11yTriggerBtn" class="a11y-trigger-btn" aria-label="Open Accessibility Menu" title="Accessibility Options">
+    <svg viewBox="0 0 24 24">
+      <path d="M12 2c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm9 7h-6v13h-2v-6h-2v6H9V9H3V7h18v2z"/>
+    </svg>
+  </button>
+
+  <!-- Accessibility Menu Modal Panel -->
+  <div id="a11yPanel" class="a11y-panel" aria-label="Accessibility Options Menu">
+    <div class="a11y-panel-header">
+      <div class="a11y-panel-title">
+        <span>♿ Accessibility Options</span>
+      </div>
+      <button id="a11yCloseBtn" class="a11y-panel-close" aria-label="Close accessibility menu">&times;</button>
+    </div>
+
+    <div class="a11y-options-grid">
+      <button id="a11yFontBtn" class="a11y-opt-btn" data-a11y-action="font">
+        <span class="a11y-opt-icon">🔍</span>
+        <span id="a11yFontLabel">Text Size: Normal</span>
+      </button>
+
+      <button id="a11ySpacingBtn" class="a11y-opt-btn" data-a11y-action="spacing">
+        <span class="a11y-opt-icon">↔️</span>
+        <span>Text Spacing</span>
+      </button>
+
+      <button id="a11yDyslexiaBtn" class="a11y-opt-btn" data-a11y-action="dyslexia">
+        <span class="a11y-opt-icon">📖</span>
+        <span>Dyslexia Font</span>
+      </button>
+
+      <button id="a11yLinksBtn" class="a11y-opt-btn" data-a11y-action="links">
+        <span class="a11y-opt-icon">🔗</span>
+        <span>Highlight Links</span>
+      </button>
+
+      <button id="a11yContrastBtn" class="a11y-opt-btn" data-a11y-action="contrast">
+        <span class="a11y-opt-icon">🌗</span>
+        <span>High Contrast</span>
+      </button>
+
+      <button id="a11yCursorBtn" class="a11y-opt-btn" data-a11y-action="cursor">
+        <span class="a11y-opt-icon">🖱️</span>
+        <span>Big Cursor</span>
+      </button>
+    </div>
+
+    <div style="display: flex; gap: 0.5rem; margin-top: 0.5rem;">
+      <button id="a11yResetBtn" class="a11y-reset-btn" style="flex: 1;">Reset All</button>
+      <button onclick="downloadInstaller('a11y_guide')" class="a11y-reset-btn" style="flex: 1; border-color: var(--accent); color: var(--accent);">📥 A11y Guide</button>
+    </div>
+  </div>
 
   <script src="js/main.js"></script>
 </body>
+
 </html>

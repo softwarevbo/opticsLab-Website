@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+     xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+     viewBox="0 0 880 240" 
+     width="880" 
+     height="240"
+     version="1.1"
+     id="opticslab-bench-logo-light"
+     inkscape:version="1.3"
+     sodipodi:docname="opticslab_logo.svg">
+
+  <title>OpticsLAB 3D Optical Bench Logo</title>
+  <desc>Normal clean light theme version of the 3D Optical Bench &amp; Spot Diagram OpticsLAB logo. Features crisp white background, SCHOTT glass biconvex lens, ray bundle, and detector screen organized in Inkscape layers.</desc>
+
+  <defs id="defs-bench-light">
+    <linearGradient id="lightBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="50%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#f1f5f9"/>
+    </linearGradient>
+
+    <linearGradient id="lightGlassGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="35%" stop-color="#38bdf8" stop-opacity="0.5"/>
+      <stop offset="75%" stop-color="#0284c7" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#e0f2fe" stop-opacity="0.9"/>
+    </linearGradient>
+
+    <linearGradient id="lightDetectorGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="50%" stop-color="#e2e8f0"/>
+      <stop offset="100%" stop-color="#cbd5e1"/>
+    </linearGradient>
+
+    <linearGradient id="lightTextGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7"/>
+      <stop offset="45%" stop-color="#2563eb"/>
+      <stop offset="85%" stop-color="#7c3aed"/>
+      <stop offset="100%" stop-color="#db2777"/>
+    </linearGradient>
+
+    <linearGradient id="lightLaserBundle" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#0284c7" stop-opacity="0.2"/>
+      <stop offset="70%" stop-color="#0284c7" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#0369a1" stop-opacity="1"/>
+    </linearGradient>
+
+    <filter id="lightDropShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feOffset dx="0" dy="3" result="offset"/>
+      <feComponentTransfer in="offset" result="shadow">
+        <feFuncA type="linear" slope="0.12"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="lightGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- INKSCAPE LAYER 1: BACKGROUND & OPTICAL BENCH AXIS -->
+  <g id="layer-1-bg" inkscape:groupmode="layer" inkscape:label="1. Background &amp; Bench Axis">
+    <title>Layer 1: Normal Light Card &amp; Bench Rail</title>
+    <desc>Normal clean light container background with optical bench rail scale.</desc>
+
+    <rect width="874" height="234" x="3" y="3" rx="26" fill="url(#lightBgGrad)" filter="url(#lightDropShadow)"/>
+    <rect width="872" height="232" x="4" y="4" rx="25" fill="none" stroke="#e2e8f0" stroke-width="1.5"/>
+
+    <g id="bench-rail-axis-light" opacity="0.6">
+      <line x1="15" y1="185" x2="225" y2="185" stroke="#64748b" stroke-width="2.5"/>
+      <line x1="25" y1="180" x2="25" y2="190" stroke="#64748b" stroke-width="1.5"/>
+      <line x1="60" y1="182" x2="60" y2="188" stroke="#64748b" stroke-width="1.5"/>
+      <line x1="95" y1="180" x2="95" y2="190" stroke="#64748b" stroke-width="1.5"/>
+      <line x1="130" y1="182" x2="130" y2="188" stroke="#64748b" stroke-width="1.5"/>
+      <line x1="165" y1="180" x2="165" y2="190" stroke="#64748b" stroke-width="1.5"/>
+      <line x1="200" y1="182" x2="200" y2="188" stroke="#64748b" stroke-width="1.5"/>
+      <text x="215" y="200" font-family="sans-serif" font-size="10" font-weight="700" fill="#475569">Z-Axis (mm)</text>
+    </g>
+
+    <line id="principal-axis-light" x1="10" y1="115" x2="230" y2="115" stroke="#0284c7" stroke-width="1" stroke-dasharray="6 6" opacity="0.4"/>
+  </g>
+
+  <!-- INKSCAPE LAYER 2: 3D LENS, RAYTRACING & SPOT DIAGRAM DETECTOR -->
+  <g id="layer-2-optical-bench" inkscape:groupmode="layer" inkscape:label="2. Optical CAD Bench Setup">
+    <title>Layer 2: 3D Optical Components &amp; Spot Diagram</title>
+    <desc>Beam launcher, SCHOTT glass biconvex lens, ray bundle, and spot diagram detector screen in normal colors.</desc>
+
+    <g id="bench-setup-group" transform="translate(15, 15)">
+      
+      <g id="component-light-source">
+        <rect x="5" y="65" width="22" height="70" rx="4" fill="#334155" stroke="#0284c7" stroke-width="1.5"/>
+        <line x1="27" y1="70" x2="27" y2="130" stroke="#0284c7" stroke-width="2"/>
+      </g>
+
+      <g id="collimated-rays">
+        <path d="M 27,78 L 92,78" stroke="url(#lightLaserBundle)" stroke-width="2" stroke-linecap="round"/>
+        <path d="M 27,96 L 90,96" stroke="url(#lightLaserBundle)" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M 27,100 L 88,100" stroke="url(#lightLaserBundle)" stroke-width="3.5" stroke-linecap="round" filter="url(#lightGlow)"/>
+        <path d="M 27,104 L 90,104" stroke="url(#lightLaserBundle)" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M 27,122 L 92,122" stroke="url(#lightLaserBundle)" stroke-width="2" stroke-linecap="round"/>
+      </g>
+
+      <g id="component-lens">
+        <rect x="88" y="152" width="16" height="18" fill="#475569" stroke="#0284c7" stroke-width="1"/>
+        <path id="lens-element" 
+              d="M 96,40 C 122,65 122,135 96,160 C 70,135 70,65 96,40 Z" 
+              fill="url(#lightGlassGrad)" 
+              stroke="#0284c7" 
+              stroke-width="2" 
+              filter="url(#lightDropShadow)"/>
+        <path d="M 88,52 C 102,72 102,128 88,148" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" opacity="0.9"/>
+      </g>
+
+      <g id="refracted-converging-rays">
+        <path d="M 96,78 L 155,100 L 205,82" stroke="#7c3aed" stroke-width="2" stroke-linecap="round"/>
+        <path d="M 96,96 L 155,100 L 205,94" stroke="#0284c7" stroke-width="2" stroke-linecap="round"/>
+        <path d="M 96,100 L 155,100 L 205,100" stroke="#2563eb" stroke-width="3" stroke-linecap="round" filter="url(#lightGlow)"/>
+        <path d="M 96,104 L 155,100 L 205,106" stroke="#0284c7" stroke-width="2" stroke-linecap="round"/>
+        <path d="M 96,122 L 155,100 L 205,118" stroke="#dc2626" stroke-width="2" stroke-linecap="round"/>
+
+        <circle cx="155" cy="100" r="5" fill="#2563eb" filter="url(#lightGlow)"/>
+        <circle cx="155" cy="100" r="2.5" fill="#ffffff"/>
+      </g>
+
+      <g id="component-detector-screen" transform="translate(195, 45)">
+        <rect x="9" y="108" width="10" height="18" fill="#475569" stroke="#0284c7" stroke-width="1"/>
+        <rect id="screen-surface" width="28" height="110" rx="3" fill="url(#lightDetectorGrad)" stroke="#64748b" stroke-width="1.5" filter="url(#lightDropShadow)"/>
+
+        <g opacity="0.6" stroke="#0284c7" fill="none" stroke-width="1">
+          <ellipse cx="14" cy="55" rx="10" ry="38" stroke-dasharray="2 2"/>
+          <ellipse cx="14" cy="55" rx="5" ry="20"/>
+          <circle cx="14" cy="55" r="1.5" fill="#0284c7"/>
+        </g>
+
+        <g opacity="0.95">
+          <circle cx="14" cy="37" r="1.5" fill="#7c3aed"/>
+          <circle cx="14" cy="49" r="1.5" fill="#0284c7"/>
+          <circle cx="14" cy="55" r="2.5" fill="#2563eb"/>
+          <circle cx="14" cy="61" r="1.5" fill="#0284c7"/>
+          <circle cx="14" cy="73" r="1.5" fill="#dc2626"/>
+        </g>
+      </g>
+    </g>
+  </g>
+
+  <!-- INKSCAPE LAYER 3: BRAND TYPOGRAPHY & BADGE -->
+  <g id="layer-3-typography" inkscape:groupmode="layer" inkscape:label="3. Brand Typography">
+    <title>Layer 3: Scientific Brand Typography</title>
+    <desc>Normal clean typography reading 'OpticsLAB', 3D tech badge, and optical bench raytracing tagline.</desc>
+
+    <g id="typography-container" transform="translate(265, 0)">
+      <text x="0" y="122" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="76" font-weight="900" letter-spacing="-1.5">
+        <tspan fill="#0f172a">Optics</tspan>
+        <tspan fill="url(#lightTextGrad)">LAB</tspan>
+      </text>
+
+      <g id="badge-3d-bench" transform="translate(425, 66)">
+        <rect width="60" height="36" rx="11" fill="url(#lightTextGrad)" filter="url(#lightDropShadow)"/>
+        <rect width="58" height="34" x="1" y="1" rx="10" fill="none" stroke="#ffffff" stroke-opacity="0.8" stroke-width="1.5"/>
+        <text x="30" y="25" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="900" fill="#ffffff" text-anchor="middle">3D</text>
+      </g>
+
+      <g id="subtitle-group" transform="translate(4, 164)">
+        <text font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="15" font-weight="700" fill="#64748b" letter-spacing="5">
+          3D OPTICAL BENCH &amp; RAY TRACING SIMULATOR
+        </text>
+
+        <path d="M 0,16 L 495,16" stroke="url(#lightTextGrad)" stroke-width="2.5" stroke-linecap="round" opacity="0.85"/>
+        <circle cx="495" cy="16" r="4" fill="#0284c7"/>
+      </g>
+    </g>
+  </g>
+</svg>

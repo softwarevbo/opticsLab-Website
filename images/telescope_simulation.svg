@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+     xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+     viewBox="0 0 600 300" 
+     width="100%" 
+     height="100%"
+     version="1.1"
+     id="opticslab-telescope-diagram"
+     inkscape:version="1.3"
+     sodipodi:docname="telescope_simulation.svg">
+
+  <title>Cassegrain Two-Mirror Telescope Pure Diagram</title>
+  <desc>Pure 3D optical raytracing diagram demonstrating starlight reflection through a parabolic primary mirror and secondary mirror system onto a focus eyepiece without text or UI content.</desc>
+
+  <defs id="defs-telescope-diagram">
+    <linearGradient id="telescopeBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="60%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#f1f5f9"/>
+    </linearGradient>
+
+    <linearGradient id="mirrorSilverGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="40%" stop-color="#cbd5e1"/>
+      <stop offset="80%" stop-color="#64748b"/>
+      <stop offset="100%" stop-color="#334155"/>
+    </linearGradient>
+
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feOffset dx="0" dy="3" result="offset"/>
+      <feComponentTransfer in="offset" result="shadow">
+        <feFuncA type="linear" slope="0.12"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="laserGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- LAYER 1: BACKGROUND & GRID -->
+  <g id="layer-1-bg" inkscape:groupmode="layer" inkscape:label="1. Background &amp; Grid">
+    <title>Layer 1: Diagram Background &amp; Grid</title>
+    <desc>Clean card container with optical axis guides.</desc>
+
+    <rect width="600" height="300" rx="12" fill="url(#telescopeBg)" filter="url(#softShadow)"/>
+    <rect width="598" height="298" x="1" y="1" rx="11" fill="none" stroke="#e2e8f0" stroke-width="1.5"/>
+
+    <!-- Subtle Optical Axis -->
+    <g stroke="#e2e8f0" stroke-width="1" opacity="0.8">
+      <line x1="0" y1="150" x2="600" y2="150" stroke="#0284c7" stroke-width="1" stroke-dasharray="6 6" opacity="0.4"/>
+      <line x1="200" y1="0" x2="200" y2="300" stroke-dasharray="4 4"/>
+      <line x1="480" y1="0" x2="480" y2="300" stroke-dasharray="4 4"/>
+    </g>
+  </g>
+
+  <!-- LAYER 2: PURE TELESCOPE MIRRORS & RAYS -->
+  <g id="layer-2-diagram" inkscape:groupmode="layer" inkscape:label="2. Pure Telescope Diagram">
+    <title>Layer 2: Parabolic Mirrors &amp; Reflected Starlight Paths</title>
+    <desc>Incoming parallel starlight rays, primary parabolic concave mirror, secondary convex mirror, reflected paths, and focus eyepiece.</desc>
+
+    <!-- Incoming Starlight Rays -->
+    <g id="incoming-starlight-rays">
+      <line x1="40" y1="60" x2="480" y2="60" stroke="#d97706" stroke-width="2" stroke-linecap="round"/>
+      <line x1="40" y1="100" x2="480" y2="100" stroke="#d97706" stroke-width="2" stroke-linecap="round"/>
+      <line x1="40" y1="200" x2="480" y2="200" stroke="#d97706" stroke-width="2" stroke-linecap="round"/>
+      <line x1="40" y1="240" x2="480" y2="240" stroke="#d97706" stroke-width="2" stroke-linecap="round"/>
+    </g>
+
+    <!-- Primary Concave Parabolic Mirror (Right) -->
+    <g id="primary-mirror">
+      <path d="M 480 40 Q 520 150 480 260" fill="none" stroke="url(#mirrorSilverGrad)" stroke-width="8" filter="url(#softShadow)"/>
+      <path d="M 480 40 Q 520 150 480 260" fill="none" stroke="#0284c7" stroke-width="2.5"/>
+    </g>
+
+    <!-- Primary Reflected Rays to Secondary Mirror -->
+    <g id="primary-reflections">
+      <line x1="480" y1="60" x2="200" y2="120" stroke="#d97706" stroke-width="2" stroke-linecap="round"/>
+      <line x1="480" y1="100" x2="200" y2="135" stroke="#d97706" stroke-width="2" stroke-linecap="round"/>
+      <line x1="480" y1="200" x2="200" y2="165" stroke="#d97706" stroke-width="2" stroke-linecap="round"/>
+      <line x1="480" y1="240" x2="200" y2="180" stroke="#d97706" stroke-width="2" stroke-linecap="round"/>
+    </g>
+
+    <!-- Secondary Convex Mirror (Left) -->
+    <g id="secondary-mirror">
+      <path d="M 200 110 Q 185 150 200 190" fill="none" stroke="url(#mirrorSilverGrad)" stroke-width="6" filter="url(#softShadow)"/>
+      <path d="M 200 110 Q 185 150 200 190" fill="none" stroke="#0284c7" stroke-width="2"/>
+    </g>
+
+    <!-- Secondary Reflected Rays to Focus Eyepiece -->
+    <g id="secondary-reflections">
+      <line x1="200" y1="120" x2="550" y2="150" stroke="#2563eb" stroke-width="2" stroke-linecap="round" filter="url(#laserGlow)"/>
+      <line x1="200" y1="135" x2="550" y2="150" stroke="#0284c7" stroke-width="2" stroke-linecap="round"/>
+      <line x1="200" y1="165" x2="550" y2="150" stroke="#0284c7" stroke-width="2" stroke-linecap="round"/>
+      <line x1="200" y1="180" x2="550" y2="150" stroke="#2563eb" stroke-width="2" stroke-linecap="round" filter="url(#laserGlow)"/>
+    </g>
+
+    <!-- Focal Eyepiece Detector -->
+    <g id="focus-eyepiece">
+      <rect x="545" y="125" width="22" height="50" rx="4" fill="#334155" stroke="#0284c7" stroke-width="1.5" filter="url(#softShadow)"/>
+      <circle cx="550" cy="150" r="5" fill="#2563eb" filter="url(#laserGlow)"/>
+      <circle cx="550" cy="150" r="2.5" fill="#ffffff"/>
+    </g>
+  </g>
+</svg>
