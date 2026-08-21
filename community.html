@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Community & Feedback - OpticsLAB</title>
+  <meta name="description" content="Join the OpticsLAB community, give feedback, or submit bug reports.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html" class="logo">Optics<span>LAB</span></a>
+      <div class="nav-right">
+        <button id="mobileMenuBtn" class="mobile-menu-btn" aria-label="Toggle navigation menu">☰ Menu</button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">Mission</a></li>
+          <li><a href="tutorials.html">Tutorials</a></li>
+          <li><a href="presets.html">Presets</a></li>
+          <li><a href="changelog.html">Changelog</a></li>
+          <li><a href="community.html" class="active">Community</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+        <button id="themeToggleBtn" class="theme-toggle-btn" aria-label="Toggle theme">☀️ Light</button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1 class="section-title">Community & Feedback</h1>
+    <p class="section-desc">OpticsLAB is built by the community. We welcome suggestions, bug reports, and new ideas!</p>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3>Ways to Help</h3>
+        <p>You can contribute to OpticsLAB easily:</p>
+        <ul style="padding-left: 1.25rem; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">
+          <li>Test the app and report any bugs.</li>
+          <li>Suggest new lens types or feature ideas.</li>
+          <li>Share starter code examples for beginners.</li>
+          <li>Help improve documentation and guides.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Send Feedback / Report Bug</h3>
+        <form class="feedback-form" id="issueForm" onsubmit="handleIssueSubmit(event)">
+          <div class="form-group">
+            <select id="issueType" required>
+              <option value="">Select Category</option>
+              <option value="Light Ray Simulation">Light Ray Simulation Bug</option>
+              <option value="App Window">Visual App Window / Panel Issue</option>
+              <option value="Polarization View">Polarization / 3D Sphere</option>
+              <option value="New Feature Idea">New Feature Idea</option>
+              <option value="General Question">General Question</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <input type="text" id="issueTitle" placeholder="Summary (e.g., Prism angle input error)" required />
+          </div>
+          <div class="form-group">
+            <textarea id="issueDetails" placeholder="Tell us what happened or describe your idea..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit Ticket</button>
+          <p id="formResponse" style="margin-top: 1rem; display: none; font-size: 0.9rem;"></p>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; OpticsLAB Project. Open-source 3D Optics Simulation Software.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

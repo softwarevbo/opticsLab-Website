@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video Tutorials & Guides - OpticsLAB</title>
+  <meta name="description" content="Embedded video tutorials and step-by-step feature guides for OpticsLAB 3D optics simulation software.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html" class="logo">Optics<span>LAB</span></a>
+      <div class="nav-right">
+        <button id="mobileMenuBtn" class="mobile-menu-btn" aria-label="Toggle navigation menu">☰ Menu</button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">Mission</a></li>
+          <li><a href="tutorials.html" class="active">Tutorials</a></li>
+          <li><a href="presets.html">Presets</a></li>
+          <li><a href="changelog.html">Changelog</a></li>
+          <li><a href="community.html">Community</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+        <button id="themeToggleBtn" class="theme-toggle-btn" aria-label="Toggle theme">☀️ Light</button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1 class="section-title">Video Tutorials & Feature Guides</h1>
+    <p class="section-desc">Watch software demonstrations and learn how to build 3D optical setups, position lenses, and view polarization.</p>
+
+    <div class="tab-nav">
+      <button class="tab-btn active" data-target="getting-started" onclick="switchTutorialCategory('getting-started')">Getting Started</button>
+      <button class="tab-btn" data-target="visual-tools" onclick="switchTutorialCategory('visual-tools')">Visual 3D Tools</button>
+      <button class="tab-btn" data-target="polarization-analysis" onclick="switchTutorialCategory('polarization-analysis')">Light Polarization</button>
+      <button class="tab-btn" data-target="gui-panels" onclick="switchTutorialCategory('gui-panels')">Workspace Panels</button>
+    </div>
+
+    <!-- Category 1: Getting Started -->
+    <div id="getting-started" class="tutorial-group grid-2">
+      <div class="card">
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Software Installation Guide" allowfullscreen></iframe>
+        </div>
+        <span class="tag">Installation</span>
+        <h3>1. Installing OpticsLAB Desktop App</h3>
+        <p>Learn how to download and install OpticsLAB for Windows (.exe), Linux (.deb), or macOS (.dmg) using the setup wizard.</p>
+      </div>
+      <div class="card">
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Opening Sample Files" allowfullscreen></iframe>
+        </div>
+        <span class="tag">Sample Files</span>
+        <h3>2. Loading Sample Project Files</h3>
+        <p>Learn how to open downloaded sample project files using the <code>File > Open Project</code> menu inside OpticsLAB.</p>
+      </div>
+    </div>
+
+    <!-- Category 2: Visual 3D Tools -->
+    <div id="visual-tools" class="tutorial-group grid-2" style="display: none;">
+      <div class="card">
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Glass Prism Light Bending Tutorial" allowfullscreen></iframe>
+        </div>
+        <span class="tag">Prism Setup</span>
+        <h3>Glass Prism Light Bending Setup</h3>
+        <p>Watch how light rays bend through a 60-degree glass prism in the 3D interactive view window.</p>
+      </div>
+      <div class="card">
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Focus Light with a Lens Tutorial" allowfullscreen></iframe>
+        </div>
+        <span class="tag">Lens Focus</span>
+        <h3>Lens Focusing & Detector Screen Setup</h3>
+        <p>Learn how to place convex lenses and position detector screens to view light focal spots.</p>
+      </div>
+    </div>
+
+    <!-- Category 3: Light Polarization -->
+    <div id="polarization-analysis" class="tutorial-group grid-2" style="display: none;">
+      <div class="card">
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="3D Polarization Sphere Tutorial" allowfullscreen></iframe>
+        </div>
+        <span class="tag">3D Sphere</span>
+        <h3>3D Wave Polarization Sphere Guide</h3>
+        <p>Watch how light wave polarization transitions are plotted and visualised on the 3D interactive sphere.</p>
+      </div>
+      <div class="card">
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Waveplate Retarders Tutorial" allowfullscreen></iframe>
+        </div>
+        <span class="tag">Waveplates</span>
+        <h3>Waveplates & Polarization Retarders</h3>
+        <p>Understand how quarter-wave and half-wave plates alter light wave polarization inside the visual setup.</p>
+      </div>
+    </div>
+
+    <!-- Category 4: Workspace Panels -->
+    <div id="gui-panels" class="tutorial-group grid-2" style="display: none;">
+      <div class="card">
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Light Source Panel Tutorial" allowfullscreen></iframe>
+        </div>
+        <span class="tag">Light Source</span>
+        <h3>Light Source & Beam Launcher Panel</h3>
+        <p>Learn how to configure light source patterns (point rays, circular beams, rectangular bundles) and ray counts.</p>
+      </div>
+      <div class="card">
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Properties & Spot Plot Panels Tutorial" allowfullscreen></iframe>
+        </div>
+        <span class="tag">Properties & Plots</span>
+        <h3>Properties Editor & Spot Diagram Plots</h3>
+        <p>Discover how to adjust lens curvature live in the editor panel and inspect focal spot distribution plots.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; OpticsLAB Project. 3D Optics Simulation Software.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

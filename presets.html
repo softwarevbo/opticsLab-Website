@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sample Project Files - OpticsLAB</title>
+  <meta name="description" content="Download sample project setup files to import directly into OpticsLAB.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html" class="logo">Optics<span>LAB</span></a>
+      <div class="nav-right">
+        <button id="mobileMenuBtn" class="mobile-menu-btn" aria-label="Toggle navigation menu">☰ Menu</button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">Mission</a></li>
+          <li><a href="tutorials.html">Tutorials</a></li>
+          <li><a href="presets.html" class="active">Presets</a></li>
+          <li><a href="changelog.html">Changelog</a></li>
+          <li><a href="community.html">Community</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+        <button id="themeToggleBtn" class="theme-toggle-btn" aria-label="Toggle theme">☀️ Light</button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1 class="section-title">Sample Project Files & Presets</h1>
+    <p class="section-desc">Download ready-to-load sample project files to import directly into OpticsLAB via <code>File > Open Project</code>.</p>
+
+    <div class="grid-2">
+      <div class="card">
+        <span class="tag">Prism Setup</span>
+        <h3>Glass Prism Light Bending</h3>
+        <p>Sample project file with a 60-degree glass prism and multi-ray light source ready for 3D simulation.</p>
+        <button class="btn btn-primary" onclick="downloadSampleFile('prism_setup')">Download Sample File</button>
+      </div>
+
+      <div class="card">
+        <span class="tag">Lens Focus</span>
+        <h3>Lens Focus Setup</h3>
+        <p>Sample project file focusing light rays through a convex lens onto a detector screen.</p>
+        <button class="btn btn-primary" onclick="downloadSampleFile('lens_setup')">Download Sample File</button>
+      </div>
+
+      <div class="card">
+        <span class="tag">Telescope</span>
+        <h3>Two-Mirror Telescope</h3>
+        <p>Sample project file containing a primary parabolic mirror and secondary mirror system.</p>
+        <button class="btn btn-primary" onclick="downloadSampleFile('telescope_setup')">Download Sample File</button>
+      </div>
+
+      <div class="card">
+        <span class="tag">Polarization</span>
+        <h3>Light Wave Polarization</h3>
+        <p>Sample project file configured with waveplate retarders and 3D polarization sphere tracking.</p>
+        <button class="btn btn-primary" onclick="downloadSampleFile('polarization_setup')">Download Sample File</button>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; OpticsLAB Project. 3D Optics Simulation Software.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
