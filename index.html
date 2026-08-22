@@ -20,8 +20,8 @@
       </a>
 
       <div class="nav-right">
-        <!-- GUI Live Search Bar -->
-        <div class="nav-search">
+        <!-- GUI Live Search Bar (Desktop) -->
+        <div class="nav-search desktop-nav-search">
           <span class="nav-search-icon">🔍</span>
           <input type="text" id="searchInput" class="nav-search-input" placeholder="Search examples, gallery, FAQ..."
             aria-label="Search software topics">
@@ -31,6 +31,15 @@
 
         <button id="mobileMenuBtn" class="mobile-menu-btn" aria-label="Toggle navigation menu">☰ Menu</button>
         <ul class="nav-links" id="navLinks">
+          <!-- Mobile Only Search Bar inside 3-line Menu -->
+          <li class="mobile-search-item">
+            <div class="nav-search mobile-nav-search">
+              <span class="nav-search-icon">🔍</span>
+              <input type="text" id="mobileSearchInput" class="nav-search-input mobile-search-input" placeholder="Search examples, gallery, FAQ..." aria-label="Search software topics">
+              <button id="mobileSearchClearBtn" class="nav-search-clear mobile-search-clear" aria-label="Clear search">&times;</button>
+            </div>
+          </li>
+
           <li><a href="#home" class="active">Home</a></li>
           <li><a href="#mission">Mission</a></li>
           <li><a href="#downloads">Downloads</a></li>
@@ -40,23 +49,44 @@
           <li><a href="#changelog">Changelog</a></li>
           <li><a href="#community">Community</a></li>
           <li><a href="#faq">FAQ</a></li>
-        </ul>
-        <button id="themeToggleBtn" class="theme-toggle-btn" aria-label="Toggle theme">☀️ Light</button>
 
-        <!-- Accent Color Picker Dropdown -->
-        <div class="color-picker-container">
-          <button id="colorPickerBtn" class="color-picker-btn" aria-label="Choose accent theme color">
-            🎨 Color
-          </button>
-          <div id="colorPaletteMenu" class="color-palette-menu" aria-label="Color Theme Options">
-            <div class="color-picker-header">Accent Theme</div>
-            <div class="color-swatches-grid">
-              <button class="color-swatch swatch-blue active" data-color="blue" title="Electric Blue (Default)"></button>
-              <button class="color-swatch swatch-green" data-color="green" title="Emerald Green"></button>
-              <button class="color-swatch swatch-purple" data-color="purple" title="Violet Purple"></button>
-              <button class="color-swatch swatch-red" data-color="red" title="Crimson Red"></button>
-              <button class="color-swatch swatch-amber" data-color="amber" title="Amber Gold"></button>
-              <button class="color-swatch swatch-teal" data-color="teal" title="Teal Cyan"></button>
+          <!-- Mobile Only Theme & Color Controls inside 3-line Menu -->
+          <li class="mobile-nav-controls">
+            <div class="mobile-controls-row">
+              <button id="mobileThemeToggleBtn" class="theme-toggle-btn mobile-theme-btn" aria-label="Toggle theme">☀️ Light</button>
+              <div class="mobile-color-picker">
+                <span class="mobile-color-label">🎨 Accent Theme</span>
+                <div class="color-swatches-grid mobile-swatches-grid">
+                  <button class="color-swatch swatch-blue active" data-color="blue" title="Electric Blue"></button>
+                  <button class="color-swatch swatch-green" data-color="green" title="Emerald Green"></button>
+                  <button class="color-swatch swatch-purple" data-color="purple" title="Violet Purple"></button>
+                  <button class="color-swatch swatch-red" data-color="red" title="Crimson Red"></button>
+                  <button class="color-swatch swatch-amber" data-color="amber" title="Amber Gold"></button>
+                  <button class="color-swatch swatch-teal" data-color="teal" title="Teal Cyan"></button>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+
+        <div class="desktop-nav-controls">
+          <button id="themeToggleBtn" class="theme-toggle-btn" aria-label="Toggle theme">☀️ Light</button>
+
+          <!-- Accent Color Picker Dropdown -->
+          <div class="color-picker-container">
+            <button id="colorPickerBtn" class="color-picker-btn" aria-label="Choose accent theme color">
+              🎨 Color
+            </button>
+            <div id="colorPaletteMenu" class="color-palette-menu" aria-label="Color Theme Options">
+              <div class="color-picker-header">Accent Theme</div>
+              <div class="color-swatches-grid">
+                <button class="color-swatch swatch-blue active" data-color="blue" title="Electric Blue (Default)"></button>
+                <button class="color-swatch swatch-green" data-color="green" title="Emerald Green"></button>
+                <button class="color-swatch swatch-purple" data-color="purple" title="Violet Purple"></button>
+                <button class="color-swatch swatch-red" data-color="red" title="Crimson Red"></button>
+                <button class="color-swatch swatch-amber" data-color="amber" title="Amber Gold"></button>
+                <button class="color-swatch swatch-teal" data-color="teal" title="Teal Cyan"></button>
+              </div>
             </div>
           </div>
         </div>
@@ -72,13 +102,37 @@
     </div>
     <!-- SECTION 1: HOME -->
     <section id="home">
-      <div class="hero">
-        <h1>Simple 3D Optics & Light Ray Simulator</h1>
-        <p>OpticsLAB is a beginner-friendly desktop software for designing optical setups in 3D, simulating light
-          bending through lenses and mirrors, and viewing light polarization.</p>
-        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-          <a href="#working-examples" class="btn btn-primary">Explore Working Examples</a>
-          <a href="#gallery" class="btn">View 3D Visual Gallery</a>
+      <div class="hero-banner-card">
+        <!-- Ambient Multi-Color Radial Glow Orbs (Food & Spectral Palette) -->
+        <div class="hero-glow-orb glow-mango"></div>
+        <div class="hero-glow-orb glow-lime"></div>
+        <div class="hero-glow-orb glow-cyan"></div>
+        <div class="hero-glow-orb glow-berry"></div>
+
+        <!-- Background Watermark SVG Banner -->
+        <div class="hero-bg-banner">
+          <img src="images/opticslab_icon.svg" alt="OpticsLAB 3D Optical Bench Visual" class="hero-banner-svg">
+        </div>
+
+        <!-- Glassmorphism Hero Content Container -->
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="hero-badge-pulse"></span>
+            Next-Gen 3D Light Ray Tracing & Optics Simulator
+          </div>
+          <h1>Simple 3D Optics &amp; Light Ray Simulator</h1>
+          <p>OpticsLAB is a beginner-friendly desktop software for designing optical setups in 3D, simulating light bending through SCHOTT glass lenses and curved mirrors, and tracking wave polarization vectors.</p>
+          <div class="hero-cta-group">
+            <a href="#downloads" class="btn btn-primary btn-hero">
+              💻 Download Desktop App
+            </a>
+            <a href="#working-examples" class="btn btn-hero btn-secondary">
+              ⚡ Explore Examples
+            </a>
+            <a href="#gallery" class="btn btn-hero btn-outline">
+              🖼️ View 3D Gallery
+            </a>
+          </div>
         </div>
       </div>
 
@@ -513,7 +567,7 @@
       <p class="section-desc">Simple update history for the OpticsLAB project.</p>
 
       <div class="timeline-item">
-        <div class="timeline-version">Recent System Updates (v2.4)</div>
+        <div class="timeline-version">Recent System Updates</div>
         <div class="timeline-date">Latest Updates</div>
         <ul class="timeline-list">
           <li><strong>Performance:</strong> Added multi-core processing support for faster ray tracing calculations.

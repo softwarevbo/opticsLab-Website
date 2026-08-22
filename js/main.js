@@ -70,14 +70,14 @@ function initScrollspy() {
 
 // Theme Management (Light and Dark)
 function initTheme() {
-  const toggleBtn = document.getElementById('themeToggleBtn');
+  const toggleBtns = document.querySelectorAll('.theme-toggle-btn');
   const savedTheme = localStorage.getItem('opticslab_theme') || 'dark';
   
   document.documentElement.setAttribute('data-theme', savedTheme);
   updateToggleIcon(savedTheme);
 
-  if (toggleBtn) {
-    toggleBtn.addEventListener('click', () => {
+  toggleBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
       const currentTheme = document.documentElement.getAttribute('data-theme');
       const targetTheme = currentTheme === 'dark' ? 'light' : 'dark';
       
@@ -85,13 +85,14 @@ function initTheme() {
       localStorage.setItem('opticslab_theme', targetTheme);
       updateToggleIcon(targetTheme);
     });
-  }
+  });
 }
 
 function updateToggleIcon(theme) {
-  const toggleBtn = document.getElementById('themeToggleBtn');
-  if (!toggleBtn) return;
-  toggleBtn.innerHTML = theme === 'dark' ? '☀️ Light' : '🌙 Dark';
+  const toggleBtns = document.querySelectorAll('.theme-toggle-btn');
+  toggleBtns.forEach(btn => {
+    btn.innerHTML = theme === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode';
+  });
 }
 
 // Tutorial Tabs Switcher
@@ -333,44 +334,49 @@ function handleIssueSubmit(event) {
 
 // Live Search & Keyboard Filter Engine (LightTrans Style GUI Search)
 function initLiveSearch() {
-  const searchInput = document.getElementById('searchInput');
-  const searchShortcut = document.getElementById('searchShortcut');
-  const searchClearBtn = document.getElementById('searchClearBtn');
+  const searchInputs = document.querySelectorAll('.nav-search-input');
+  const searchShortcuts = document.querySelectorAll('.nav-search-shortcut');
+  const searchClearBtns = document.querySelectorAll('.nav-search-clear');
   const statusBar = document.getElementById('searchStatusBar');
   const statusText = document.getElementById('searchStatusText');
 
-  if (!searchInput) return;
+  if (!searchInputs.length) return;
 
   // Keyboard shortcut listener (Ctrl+K or Cmd+K or '/')
   document.addEventListener('keydown', (e) => {
     if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
       e.preventDefault();
-      searchInput.focus();
-      searchInput.select();
-    } else if (e.key === '/' && document.activeElement !== searchInput && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
+      const activeInput = document.querySelector('.mobile-search-item .nav-search-input') || searchInputs[0];
+      if (activeInput) {
+        activeInput.focus();
+        activeInput.select();
+      }
+    } else if (e.key === '/' && !['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) {
       e.preventDefault();
-      searchInput.focus();
-    } else if (e.key === 'Escape' && document.activeElement === searchInput) {
+      const activeInput = document.querySelector('.mobile-search-item .nav-search-input') || searchInputs[0];
+      if (activeInput) activeInput.focus();
+    } else if (e.key === 'Escape') {
       clearLiveSearch();
-      searchInput.blur();
     }
   });
 
-  searchInput.addEventListener('input', () => {
-    const query = searchInput.value.trim().toLowerCase();
-    performSearchFilter(query);
+  searchInputs.forEach(input => {
+    input.addEventListener('input', () => {
+      const query = input.value.trim().toLowerCase();
+      searchInputs.forEach(i => { if (i !== input) i.value = input.value; });
+      performSearchFilter(query);
+    });
   });
 
-  if (searchClearBtn) {
-    searchClearBtn.addEventListener('click', () => {
+  searchClearBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
       clearLiveSearch();
-      searchInput.focus();
     });
-  }
+  });
 
   function performSearchFilter(query) {
-    if (searchShortcut) searchShortcut.style.display = query ? 'none' : 'block';
-    if (searchClearBtn) searchClearBtn.style.display = query ? 'block' : 'none';
+    searchShortcuts.forEach(sc => { sc.style.display = query ? 'none' : 'block'; });
+    searchClearBtns.forEach(cb => { cb.style.display = query ? 'block' : 'none'; });
 
     const searchableItems = document.querySelectorAll('.card, .gallery-card, .faq-item, .timeline-item');
     if (!searchableItems.length) return;
@@ -409,14 +415,19 @@ function initLiveSearch() {
 }
 
 function clearLiveSearch() {
-  const searchInput = document.getElementById('searchInput');
-  const searchShortcut = document.getElementById('searchShortcut');
-  const searchClearBtn = document.getElementById('searchClearBtn');
+  const searchInputs = document.querySelectorAll('.nav-search-input');
+  const searchShortcuts = document.querySelectorAll('.nav-search-shortcut');
+  const searchClearBtns = document.querySelectorAll('.nav-search-clear');
   const statusBar = document.getElementById('searchStatusBar');
 
-  if (searchInput) searchInput.value = '';
-  if (searchShortcut) searchShortcut.style.display = 'block';
-  if (searchClearBtn) searchClearBtn.style.display = 'none';
+  searchInputs.forEach(input => { input.value = ''; });
+  searchShortcuts.forEach(sc => { sc.style.display = 'block'; });
+  searchClearBtns.forEach(cb => { cb.style.display = 'none'; });
+
+  const searchableItems = document.querySelectorAll('.card, .gallery-card, .faq-item, .timeline-item');
+  searchableItems.forEach(item => {
+    item.classList.remove('search-hidden', 'search-matched');
+  });
 
   if (statusBar) statusBar.classList.remove('active');
 }

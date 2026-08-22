@@ -6,39 +6,115 @@
      width="512" 
      height="512"
      version="1.1"
-     id="opticslab-bench-icon-light"
+     id="opticslab-bench-icon-vibrant"
      inkscape:version="1.3"
      sodipodi:docname="opticslab_icon.svg">
 
-  <title>OpticsLAB 3D Optical Bench App Icon (Light Theme)</title>
-  <desc>Normal clean light theme 512x512 app icon mark representing OpticsLAB's actual Python CAD raytracing engine: Light source beam launcher, SCHOTT glass biconvex lens, focal bundle, and spot diagram detector screen in Inkscape layers.</desc>
+  <title>OpticsLAB 3D Optical Bench App Icon (Vibrant Food &amp; Spectral Theme)</title>
+  <desc>Vibrant ultra-attractive 512x512 app icon mark with bright food &amp; spectral gradients (Mango, Lime, Berry, Cyan, Gold) for OpticsLAB CAD 3D Ray Tracing Engine.</desc>
 
-  <defs id="defs-icon-light">
-    <linearGradient id="iconLightBg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#ffffff"/>
-      <stop offset="50%" stop-color="#f8fafc"/>
-      <stop offset="100%" stop-color="#f1f5f9"/>
+  <defs id="defs-icon-vibrant">
+    <!-- Rich Deep Space Canvas Backdrop Gradient -->
+    <linearGradient id="iconCanvasGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0f19"/>
+      <stop offset="35%" stop-color="#141829"/>
+      <stop offset="70%" stop-color="#1e1b4b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
     </linearGradient>
 
-    <linearGradient id="iconGlassGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <!-- Outer Frame Border Gradient -->
+    <linearGradient id="iconFrameBorderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff7e5f"/>
+      <stop offset="25%" stop-color="#84cc16"/>
+      <stop offset="50%" stop-color="#06b6d4"/>
+      <stop offset="75%" stop-color="#ec4899"/>
+      <stop offset="100%" stop-color="#fbbf24"/>
+    </linearGradient>
+
+    <!-- Ambient Food & Spectral Core Radial Glow -->
+    <radialGradient id="iconAmbientGlow" cx="45%" cy="50%" r="55%">
+      <stop offset="0%" stop-color="#f97316" stop-opacity="0.35"/>
+      <stop offset="30%" stop-color="#ec4899" stop-opacity="0.25"/>
+      <stop offset="65%" stop-color="#06b6d4" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#0b0f19" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Food & Spectral Laser Ray Gradients -->
+    <!-- 1. Coral Mango Ray -->
+    <linearGradient id="rayMango" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ff416c"/>
+      <stop offset="50%" stop-color="#ff7e5f"/>
+      <stop offset="100%" stop-color="#ffb347"/>
+    </linearGradient>
+
+    <!-- 2. Citrus Lime Ray -->
+    <linearGradient id="rayCitrus" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#a8e063"/>
+      <stop offset="60%" stop-color="#84cc16"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+
+    <!-- 3. Ocean Cyan Ray (Central Optical Axis) -->
+    <linearGradient id="rayCyan" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00c6ff"/>
+      <stop offset="50%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#0072ff"/>
+    </linearGradient>
+
+    <!-- 4. Berry Magenta Ray -->
+    <linearGradient id="rayBerry" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f80759"/>
+      <stop offset="50%" stop-color="#ec4899"/>
+      <stop offset="100%" stop-color="#d946ef"/>
+    </linearGradient>
+
+    <!-- 5. Golden Amber Ray -->
+    <linearGradient id="rayGold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f5af19"/>
+      <stop offset="50%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#f97316"/>
+    </linearGradient>
+
+    <!-- SCHOTT Glass Refractive Prism/Lens Gradient -->
+    <linearGradient id="iconGlassGradVibrant" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
-      <stop offset="35%" stop-color="#38bdf8" stop-opacity="0.5"/>
-      <stop offset="75%" stop-color="#0284c7" stop-opacity="0.35"/>
-      <stop offset="100%" stop-color="#e0f2fe" stop-opacity="0.9"/>
+      <stop offset="25%" stop-color="#a78bfa" stop-opacity="0.75"/>
+      <stop offset="55%" stop-color="#38bdf8" stop-opacity="0.65"/>
+      <stop offset="80%" stop-color="#f43f5e" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#e0f2fe" stop-opacity="0.95"/>
     </linearGradient>
 
-    <linearGradient id="iconAccentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0284c7"/>
-      <stop offset="45%" stop-color="#2563eb"/>
-      <stop offset="85%" stop-color="#7c3aed"/>
-      <stop offset="100%" stop-color="#db2777"/>
+    <!-- 3D Tech Badge Food Gradient (Tangerine Mango to Passionfruit Pink) -->
+    <linearGradient id="badgeFoodGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff416c"/>
+      <stop offset="50%" stop-color="#ff7e5f"/>
+      <stop offset="100%" stop-color="#8a2387"/>
     </linearGradient>
 
-    <filter id="iconShadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="6" result="blur"/>
-      <feOffset dx="0" dy="4" result="offset"/>
+    <!-- Beam Launcher Metal Finish -->
+    <linearGradient id="launcherMetal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#334155"/>
+      <stop offset="50%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+
+    <!-- High Intensity Beam Glow Filter -->
+    <filter id="neonGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="5" result="blur1"/>
+      <feGaussianBlur stdDeviation="10" result="blur2"/>
+      <feMerge>
+        <feMergeNode in="blur2"/>
+        <feMergeNode in="blur1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Soft Drop Shadow Filter -->
+    <filter id="iconShadowVibrant" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feOffset dx="0" dy="6" result="offset"/>
       <feComponentTransfer in="offset" result="shadow">
-        <feFuncA type="linear" slope="0.15"/>
+        <feFuncA type="linear" slope="0.35"/>
       </feComponentTransfer>
       <feMerge>
         <feMergeNode in="shadow"/>
@@ -47,90 +123,165 @@
     </filter>
   </defs>
 
-  <!-- LAYER 1: APP FRAME & BENCH RAIL -->
+  <!-- LAYER 1: APP FRAME & BENCH RAIL CANVAS -->
   <g id="icon-layer-1-frame" inkscape:groupmode="layer" inkscape:label="1. App Frame &amp; Rail Axis">
-    <title>Layer 1: App Container &amp; Rail</title>
-    <desc>512x512 rounded rectangle container with optical bench rail scale.</desc>
+    <!-- Base Rounded Container with Deep Space Gradient -->
+    <rect width="512" height="512" rx="112" fill="url(#iconCanvasGrad)" filter="url(#iconShadowVibrant)"/>
 
-    <rect width="512" height="512" rx="112" fill="url(#iconLightBg)" filter="url(#iconShadow)"/>
-    <rect width="506" height="506" x="3" y="3" rx="110" fill="none" stroke="#e2e8f0" stroke-width="3"/>
+    <!-- Ambient Core Multi-Color Glow -->
+    <rect width="512" height="512" rx="112" fill="url(#iconAmbientGlow)"/>
 
-    <!-- Optical Bench Rail Scale -->
-    <g opacity="0.5" stroke="#64748b" stroke-width="2">
-      <line x1="40" y1="410" x2="472" y2="410"/>
-      <line x1="60" y1="400" x2="60" y2="420"/>
-      <line x1="130" y1="404" x2="130" y2="416"/>
-      <line x1="200" y1="400" x2="200" y2="420"/>
-      <line x1="270" y1="404" x2="270" y2="416"/>
-      <line x1="340" y1="400" x2="340" y2="420"/>
-      <line x1="410" y1="404" x2="410" y2="416"/>
+    <!-- Vibrant Gradient Outer Border Highlight -->
+    <rect width="506" height="506" x="3" y="3" rx="110" fill="none" stroke="url(#iconFrameBorderGrad)" stroke-width="3.5" opacity="0.85"/>
+
+    <!-- Optical Bench Rail Scale with Glowing Ticks -->
+    <g opacity="0.65" stroke="#94a3b8" stroke-width="2">
+      <line x1="40" y1="410" x2="472" y2="410" stroke="url(#rayCyan)" stroke-width="2.5"/>
+      <line x1="60" y1="400" x2="60" y2="420" stroke="#ff7e5f"/>
+      <line x1="130" y1="404" x2="130" y2="416" stroke="#84cc16"/>
+      <line x1="200" y1="400" x2="200" y2="420" stroke="#38bdf8"/>
+      <line x1="270" y1="404" x2="270" y2="416" stroke="#ec4899"/>
+      <line x1="340" y1="400" x2="340" y2="420" stroke="#fbbf24"/>
+      <line x1="410" y1="404" x2="410" y2="416" stroke="#ff7e5f"/>
     </g>
 
-    <!-- Principal Optical Axis -->
-    <line x1="30" y1="240" x2="480" y2="240" stroke="#0284c7" stroke-width="1.5" stroke-dasharray="8 6" opacity="0.4"/>
+    <!-- Principal Optical Axis (Dashed Center Ray) -->
+    <line x1="30" y1="240" x2="480" y2="240" stroke="#38bdf8" stroke-width="2" stroke-dasharray="8 6" opacity="0.6" filter="url(#neonGlow)"/>
   </g>
 
-  <!-- LAYER 2: 3D OPTICAL BENCH SETUP -->
+  <!-- LAYER 2: VIBRANT 3D OPTICAL BENCH SETUP -->
   <g id="icon-layer-2-setup" inkscape:groupmode="layer" inkscape:label="2. Optical CAD Bench Setup">
-    <title>Layer 2: 3D Optical Bench &amp; Spot Diagram</title>
-    <desc>Beam launcher, SCHOTT glass biconvex lens, focal bundle, and spot diagram detector screen.</desc>
 
     <!-- BEAM LAUNCHER -->
     <g id="icon-beam-launcher">
-      <rect x="40" y="140" width="36" height="200" rx="8" fill="#334155" stroke="#0284c7" stroke-width="2"/>
-      <line x1="76" y1="150" x2="76" y2="330" stroke="#0284c7" stroke-width="3"/>
+      <rect x="40" y="140" width="36" height="200" rx="10" fill="url(#launcherMetal)" stroke="url(#rayMango)" stroke-width="2.5" filter="url(#iconShadowVibrant)"/>
+      <line x1="76" y1="150" x2="76" y2="330" stroke="#38bdf8" stroke-width="3.5" filter="url(#neonGlow)"/>
+      <!-- Emitter LEDs -->
+      <circle cx="58" cy="170" r="4" fill="#ff416c" filter="url(#neonGlow)"/>
+      <circle cx="58" cy="210" r="4" fill="#84cc16" filter="url(#neonGlow)"/>
+      <circle cx="58" cy="240" r="5" fill="#38bdf8" filter="url(#neonGlow)"/>
+      <circle cx="58" cy="270" r="4" fill="#ec4899" filter="url(#neonGlow)"/>
+      <circle cx="58" cy="310" r="4" fill="#fbbf24" filter="url(#neonGlow)"/>
     </g>
 
-    <!-- COLLIMATED LASER RAYS -->
-    <g id="icon-laser-rays">
-      <path d="M 76,170 L 210,170" stroke="#0284c7" stroke-width="4" stroke-linecap="round"/>
-      <path d="M 76,210 L 205,210" stroke="#0284c7" stroke-width="5" stroke-linecap="round"/>
-      <path d="M 76,240 L 200,240" stroke="#2563eb" stroke-width="7" stroke-linecap="round"/>
-      <path d="M 76,270 L 205,270" stroke="#0284c7" stroke-width="5" stroke-linecap="round"/>
-      <path d="M 76,310 L 210,310" stroke="#0284c7" stroke-width="4" stroke-linecap="round"/>
+    <!-- COLLIMATED SPECTRAL LASER RAYS -->
+    <g id="icon-laser-rays" filter="url(#neonGlow)">
+      <!-- Ray 1: Mango Coral -->
+      <path d="M 76,170 L 210,170" stroke="url(#rayMango)" stroke-width="5" stroke-linecap="round"/>
+      <!-- Ray 2: Citrus Lime -->
+      <path d="M 76,210 L 205,210" stroke="url(#rayCitrus)" stroke-width="5.5" stroke-linecap="round"/>
+      <!-- Ray 3: Ocean Cyan (Center Axis) -->
+      <path d="M 76,240 L 200,240" stroke="url(#rayCyan)" stroke-width="7" stroke-linecap="round"/>
+      <!-- Ray 4: Berry Magenta -->
+      <path d="M 76,270 L 205,270" stroke="url(#rayBerry)" stroke-width="5.5" stroke-linecap="round"/>
+      <!-- Ray 5: Amber Gold -->
+      <path d="M 76,310 L 210,310" stroke="url(#rayGold)" stroke-width="5" stroke-linecap="round"/>
     </g>
 
-    <!-- SCHOTT GLASS LENS -->
+    <!-- SCHOTT GLASS BICONVEX LENS WITH CHROMATIC REFRACTION -->
     <g id="icon-glass-lens">
-      <rect x="206" y="325" width="28" height="35" fill="#475569" stroke="#0284c7" stroke-width="1.5"/>
-      <path d="M 220,80 C 275,130 275,350 220,400 C 165,350 165,130 220,80 Z" fill="url(#iconGlassGrad)" stroke="#0284c7" stroke-width="3.5" filter="url(#iconShadow)"/>
-      <path d="M 204,105 C 235,145 235,335 204,375" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" opacity="0.9"/>
+      <!-- Lens Base Stand -->
+      <rect x="206" y="325" width="28" height="38" rx="4" fill="url(#launcherMetal)" stroke="#38bdf8" stroke-width="1.5"/>
+
+      <!-- Main Crystal Glass Lens Body -->
+      <path d="M 220,80 C 278,130 278,350 220,400 C 162,350 162,130 220,80 Z" 
+            fill="url(#iconGlassGradVibrant)" 
+            stroke="url(#rayCyan)" 
+            stroke-width="4" 
+            filter="url(#iconShadowVibrant)"/>
+
+      <!-- Glass High Gloss Arc Highlight -->
+      <path d="M 202,105 C 236,145 236,335 202,375" 
+            fill="none" 
+            stroke="#ffffff" 
+            stroke-width="5" 
+            stroke-linecap="round" 
+            opacity="0.9" 
+            filter="url(#neonGlow)"/>
+
+      <!-- Inner Chromatic Refraction Flare -->
+      <path d="M 238,130 C 255,180 255,270 238,320" 
+            fill="none" 
+            stroke="url(#rayBerry)" 
+            stroke-width="3" 
+            stroke-linecap="round" 
+            opacity="0.75" 
+            filter="url(#neonGlow)"/>
     </g>
 
-    <!-- CONVERGING RAY BUNDLE & FOCAL NODE -->
-    <g id="icon-focal-bundle">
-      <path d="M 220,170 L 330,240 L 420,195" stroke="#7c3aed" stroke-width="4" stroke-linecap="round"/>
-      <path d="M 220,210 L 330,240 L 420,225" stroke="#0284c7" stroke-width="4" stroke-linecap="round"/>
-      <path d="M 220,240 L 330,240 L 420,240" stroke="#2563eb" stroke-width="6" stroke-linecap="round"/>
-      <path d="M 220,270 L 330,240 L 420,255" stroke="#0284c7" stroke-width="4" stroke-linecap="round"/>
-      <path d="M 220,310 L 330,240 L 420,285" stroke="#dc2626" stroke-width="4" stroke-linecap="round"/>
+    <!-- CONVERGING RAY BUNDLE & INTENSE FOCAL NODE -->
+    <g id="icon-focal-bundle" filter="url(#neonGlow)">
+      <!-- Top Ray Refracted: Coral Mango -> Focus -> Top Detector -->
+      <path d="M 220,170 L 330,240 L 420,195" stroke="url(#rayMango)" stroke-width="4.5" stroke-linecap="round"/>
 
-      <circle cx="330" cy="240" r="10" fill="#2563eb"/>
-      <circle cx="330" cy="240" r="5" fill="#ffffff"/>
+      <!-- Mid Top Ray Refracted: Citrus Lime -> Focus -> Upper Detector -->
+      <path d="M 220,210 L 330,240 L 420,222" stroke="url(#rayCitrus)" stroke-width="4.5" stroke-linecap="round"/>
+
+      <!-- Central Axis Ray Refracted: Ocean Cyan -> Focus -> Center Detector -->
+      <path d="M 220,240 L 330,240 L 420,240" stroke="url(#rayCyan)" stroke-width="6.5" stroke-linecap="round"/>
+
+      <!-- Mid Bottom Ray Refracted: Berry Magenta -> Focus -> Lower Detector -->
+      <path d="M 220,270 L 330,240 L 420,258" stroke="url(#rayBerry)" stroke-width="4.5" stroke-linecap="round"/>
+
+      <!-- Bottom Ray Refracted: Amber Gold -> Focus -> Bottom Detector -->
+      <path d="M 220,310 L 330,240 L 420,285" stroke="url(#rayGold)" stroke-width="4.5" stroke-linecap="round"/>
+
+      <!-- Glowing Focal Node Aura & Core Ring -->
+      <circle cx="330" cy="240" r="16" fill="url(#rayCyan)" opacity="0.4" filter="url(#neonGlow)"/>
+      <circle cx="330" cy="240" r="11" fill="url(#rayMango)" opacity="0.7"/>
+      <circle cx="330" cy="240" r="6" fill="#ffffff" filter="url(#neonGlow)"/>
     </g>
 
-    <!-- DETECTOR SCREEN & SPOT DIAGRAM -->
+    <!-- DETECTOR SCREEN & FOOD/SPECTRAL SPOT DIAGRAM -->
     <g id="icon-detector-screen">
-      <rect x="420" y="100" width="48" height="280" rx="6" fill="#f8fafc" stroke="#64748b" stroke-width="3" filter="url(#iconShadow)"/>
-      <ellipse cx="444" cy="240" rx="16" ry="100" fill="none" stroke="#0284c7" stroke-width="2" opacity="0.6" stroke-dasharray="4 4"/>
+      <!-- Screen Body -->
+      <rect x="420" y="95" width="50" height="290" rx="8" 
+            fill="#1e293b" 
+            stroke="url(#rayCyan)" 
+            stroke-width="3" 
+            filter="url(#iconShadowVibrant)"/>
 
-      <circle cx="444" cy="195" r="3.5" fill="#7c3aed"/>
-      <circle cx="444" cy="225" r="3.5" fill="#0284c7"/>
-      <circle cx="444" cy="240" r="5" fill="#2563eb"/>
-      <circle cx="444" cy="255" r="3.5" fill="#0284c7"/>
-      <circle cx="444" cy="285" r="3.5" fill="#dc2626"/>
+      <!-- Elliptical Target Ring -->
+      <ellipse cx="445" cy="240" rx="18" ry="105" 
+               fill="none" 
+               stroke="#38bdf8" 
+               stroke-width="2" 
+               opacity="0.75" 
+               stroke-dasharray="4 4"/>
+
+      <!-- Spectral Spot Diagram Nodes (Vibrant Food Colors) -->
+      <!-- 1. Mango Coral Spot -->
+      <circle cx="445" cy="195" r="5" fill="#ff416c" filter="url(#neonGlow)"/>
+      <!-- 2. Citrus Lime Spot -->
+      <circle cx="445" cy="222" r="5" fill="#84cc16" filter="url(#neonGlow)"/>
+      <!-- 3. Core Cyan Spot -->
+      <circle cx="445" cy="240" r="7" fill="#38bdf8" filter="url(#neonGlow)"/>
+      <circle cx="445" cy="240" r="3.5" fill="#ffffff"/>
+      <!-- 4. Berry Magenta Spot -->
+      <circle cx="445" cy="258" r="5" fill="#ec4899" filter="url(#neonGlow)"/>
+      <!-- 5. Amber Gold Spot -->
+      <circle cx="445" cy="285" r="5" fill="#fbbf24" filter="url(#neonGlow)"/>
     </g>
   </g>
 
-  <!-- LAYER 3: 3D TECH BADGE -->
+  <!-- LAYER 3: VIBRANT FOOD-GRADIENT 3D TECH BADGE -->
   <g id="icon-layer-3-badge" inkscape:groupmode="layer" inkscape:label="3. 3D Badge">
-    <title>Layer 3: 3D Badge</title>
-    <desc>Floating 3D software technology badge.</desc>
-
-    <g transform="translate(356, 396)">
-      <rect width="94" height="52" rx="16" fill="url(#iconAccentGrad)" filter="url(#iconShadow)"/>
-      <rect width="90" height="48" x="2" y="2" rx="14" fill="none" stroke="#ffffff" stroke-opacity="0.8" stroke-width="2"/>
-      <text x="47" y="34" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="26" font-weight="900" fill="#ffffff" text-anchor="middle">3D</text>
+    <g transform="translate(352, 392)">
+      <!-- Outer Glow Shadow -->
+      <rect width="102" height="58" rx="18" fill="url(#badgeFoodGrad)" filter="url(#neonGlow)" opacity="0.85"/>
+      <!-- Main Badge Container -->
+      <rect width="98" height="54" x="2" y="2" rx="16" fill="url(#badgeFoodGrad)" filter="url(#iconShadowVibrant)"/>
+      <!-- Inner Glass Border Outline -->
+      <rect width="94" height="50" x="4" y="4" rx="14" fill="none" stroke="#ffffff" stroke-opacity="0.9" stroke-width="2.5"/>
+      <!-- Text 3D -->
+      <text x="51" y="38" 
+            font-family="-apple-system, BlinkMacSystemFont, 'Plus Jakarta Sans', 'Segoe UI', Roboto, sans-serif" 
+            font-size="28" 
+            font-weight="900" 
+            fill="#ffffff" 
+            text-anchor="middle"
+            letter-spacing="0.5px"
+            style="text-shadow: 0 2px 8px rgba(0,0,0,0.5);">3D</text>
     </g>
   </g>
 </svg>
