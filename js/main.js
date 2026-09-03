@@ -133,146 +133,7 @@ function initFAQ() {
 
 // Working Examples Downloader (.opl project file format)
 function downloadSampleFile(sampleType) {
-  const samplesData = {
-    prism_setup: {
-      filename: "Prism_Dispersion_Setup.opl",
-      content: `# OpticsLAB 3D Project File (.opl)
-# OpticsLAB - 3D Light Ray Tracing & Optics Simulator
-
-[project]
-name = "Glass Prism Light Bending & Spectrum Dispersion"
-version = "2.4"
-created_by = "OpticsLAB Working Examples"
-
-[[light_sources]]
-type = "LaserBeam"
-wavelength_nm = 632.8
-ray_count = 35
-position = [0.0, 0.0, 170.0]
-direction = [1.0, 0.0, 0.0]
-
-[[optical_elements]]
-type = "Prism"
-material = "N-BK7"
-apex_angle_deg = 60.0
-refractive_index = 1.5168
-position = [220.0, 0.0, 170.0]
-
-[[detectors]]
-type = "Screen"
-width = 50.0
-height = 150.0
-position = [500.0, 0.0, 170.0]
-display_spectrum = true
-`
-    },
-    lens_setup: {
-      filename: "Lens_Focus_Setup.opl",
-      content: `# OpticsLAB 3D Project File (.opl)
-# OpticsLAB - 3D Light Ray Tracing & Optics Simulator
-
-[project]
-name = "Biconvex Lens Focal Spot Diagram"
-version = "2.4"
-created_by = "OpticsLAB Working Examples"
-
-[[light_sources]]
-type = "ParallelBundle"
-radius = 40.0
-ray_count = 64
-wavelength_nm = 589.3
-position = [0.0, 0.0, 170.0]
-
-[[optical_elements]]
-type = "BiconvexLens"
-material = "N-BK7"
-radius_r1 = 150.0
-radius_r2 = -150.0
-center_thickness = 12.0
-diameter = 80.0
-position = [260.0, 0.0, 170.0]
-
-[[detectors]]
-type = "FocalDetectorScreen"
-width = 40.0
-height = 40.0
-position = [480.0, 0.0, 170.0]
-calculate_spot_diagram = true
-`
-    },
-    telescope_setup: {
-      filename: "Two_Mirror_Telescope.opl",
-      content: `# OpticsLAB 3D Project File (.opl)
-# OpticsLAB - 3D Light Ray Tracing & Optics Simulator
-
-[project]
-name = "Two-Mirror Astronomical Telescope (Cassegrain)"
-version = "2.4"
-created_by = "OpticsLAB Working Examples"
-
-[[light_sources]]
-type = "CollimatedStarlight"
-aperture_diameter = 200.0
-ray_count = 100
-position = [0.0, 0.0, 0.0]
-
-[[optical_elements]]
-type = "ParabolicPrimaryMirror"
-diameter = 200.0
-focal_length = 500.0
-center_hole_diameter = 40.0
-position = [480.0, 0.0, 0.0]
-
-[[optical_elements]]
-type = "HyperbolicSecondaryMirror"
-diameter = 50.0
-position = [200.0, 0.0, 0.0]
-
-[[detectors]]
-type = "EyepieceFocus"
-position = [550.0, 0.0, 0.0]
-`
-    },
-    polarization_setup: {
-      filename: "Polarization_Waveplate_State.opl",
-      content: `# OpticsLAB 3D Project File (.opl)
-# OpticsLAB - 3D Light Ray Tracing & Optics Simulator
-
-[project]
-name = "Light Wave Polarization & Poincaré Sphere Track"
-version = "2.4"
-created_by = "OpticsLAB Working Examples"
-
-[[light_sources]]
-type = "PolarizedLaser"
-stokes = [1.0, 1.0, 0.0, 0.0]
-wavelength_nm = 532.0
-
-[[optical_elements]]
-type = "QuarterWaveplate"
-retardance_deg = 90.0
-fast_axis_angle_deg = 45.0
-position = [180.0, 0.0, 0.0]
-
-[[analysis_viewers]]
-type = "PoincareSphere"
-show_3d_state_vector = true
-`
-    }
-  };
-
-  const item = samplesData[sampleType];
-  if (!item) return;
-
-  const blob = new Blob([item.content], { type: "text/plain;charset=utf-8" });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = item.filename;
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-  URL.revokeObjectURL(url);
+  // Empty button action - no file or data payload needed
 }
 
 // Gallery Lightbox Modal
@@ -628,20 +489,25 @@ function initAccessibilityWidget() {
   }
 }
 
-// Desktop Software Installers Downloader (Windows, Ubuntu, macOS)
+// Desktop Software Installers Downloader (Windows, Ubuntu/Linux, macOS)
 function downloadInstaller(osType) {
+  if (osType === 'mac') {
+    alert("OpticsLAB for macOS is currently under active development and will be released in an upcoming version!");
+    return;
+  }
+
   const installerFiles = {
     windows: {
-      filename: "OpticsLAB_Setup_v2.4.exe",
-      content: "[OpticsLAB 3D Desktop Software Installer for Windows 10 & 11 (64-bit)]\nVersion = 2.4.0\nPublisher = OpticsLAB Project\nArchitecture = x64"
+      path: "installers/v0.1.0/windows/opticslab.exe",
+      filename: "opticslab.exe"
     },
     ubuntu: {
-      filename: "opticslab_2.4.0_amd64.deb",
-      content: "[OpticsLAB 3D Desktop Software Package for Linux Debian / Ubuntu / Mint]\nVersion = 2.4.0\nArchitecture = amd64\nPackage = opticslab"
+      path: "installers/v0.1.0/linux/OpticsLAB_v0.1.0_Linux_DEB.zip",
+      filename: "OpticsLAB_v0.1.0_Linux_DEB.zip"
     },
-    mac: {
-      filename: "OpticsLAB_v2.4_macOS.dmg",
-      content: "[OpticsLAB 3D Desktop Software Image for macOS Intel & Apple Silicon]\nVersion = 2.4.0\nPlatform = macOS"
+    linux: {
+      path: "installers/v0.1.0/linux/OpticsLAB_v0.1.0_Linux_DEB.zip",
+      filename: "OpticsLAB_v0.1.0_Linux_DEB.zip"
     },
     a11y_guide: {
       filename: "OpticsLAB_Accessibility_Standards_Guide.txt",
@@ -652,13 +518,91 @@ function downloadInstaller(osType) {
   const item = installerFiles[osType];
   if (!item) return;
 
-  const blob = new Blob([item.content], { type: "application/octet-stream" });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = item.filename;
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-  URL.revokeObjectURL(url);
+  if (item.path) {
+    const a = document.createElement('a');
+    a.href = item.path;
+    a.download = item.filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  } else if (item.content) {
+    const blob = new Blob([item.content], { type: "application/octet-stream" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = item.filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
 }
+
+// Python-Style Release Filter Engine
+function filterReleases(osType, pillElem) {
+  const pills = document.querySelectorAll('.filter-pill');
+  pills.forEach(p => p.classList.remove('active'));
+  if (pillElem) pillElem.classList.add('active');
+
+  const rows = document.querySelectorAll('.release-row');
+  rows.forEach(row => {
+    const supportedOs = row.getAttribute('data-os') || '';
+    if (osType === 'all' || supportedOs.includes(osType)) {
+      row.style.display = '';
+    } else {
+      row.style.display = 'none';
+    }
+  });
+}
+
+// Release Notes Modal Dialog
+function openReleaseNotesModal(version) {
+  const modal = document.getElementById('releaseNotesModal');
+  const title = document.getElementById('releaseNotesTitle');
+  const body = document.getElementById('releaseNotesBody');
+
+  const notesData = {
+    '0.1.0': `
+      <p style="margin-bottom: 0.75rem;"><strong>OpticsLAB v0.1.0 (Official Initial Release)</strong> — Released September 2026</p>
+      <ul style="padding-left: 1.2rem; margin-bottom: 1rem;">
+        <li>🚀 <strong>3D Optical Ray Tracing:</strong> Full 3D interactive light ray tracing engine through glass lenses, prisms, and mirrors.</li>
+        <li>🪟 <strong>Windows 64-bit Installer:</strong> Native setup wizard executable (<code>opticslab.exe</code> - 70.5 MB).</li>
+        <li>🐧 <strong>Linux DEB Package:</strong> Native Debian/Ubuntu package archive (<code>OpticsLAB_v0.1.0_Linux_DEB.zip</code> - 491.5 MB).</li>
+        <li>🔬 <strong>Optical Catalog & Wave Polarization:</strong> Standard SCHOTT glass material indexes (N-BK7, F2) and 3D Poincaré sphere polarization tracker.</li>
+        <li>💾 <strong>Project File Format:</strong> Export and load <code>.opl</code> 3D optical bench setups.</li>
+      </ul>
+      <p><em>Windows Installer Hash (SHA-256):</em> <code style="font-size: 0.75rem;">e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855</code></p>
+    `,
+    '0.2.0': `
+      <p style="margin-bottom: 0.75rem;"><strong>OpticsLAB v0.2.0 (Planned Next Release)</strong> — Target: Q4 2026</p>
+      <ul style="padding-left: 1.2rem; margin-bottom: 1rem;">
+        <li>⚡ Multi-core GPU accelerated ray tracing engine.</li>
+        <li>🔭 Advanced telescope mirror system design presets.</li>
+        <li>📊 High precision spectral dispersion plotters.</li>
+      </ul>
+    `
+  };
+
+  if (modal && title && body) {
+    title.innerText = `OpticsLAB ${version} Release Notes`;
+    body.innerHTML = notesData[version] || `<p>Detailed release notes for OpticsLAB ${version} are available in the repository changelog.</p>`;
+    modal.classList.add('active');
+
+    // Backdrop click listener
+    modal.onclick = (e) => {
+      if (e.target === modal) closeReleaseNotesModal();
+    };
+  }
+}
+
+function closeReleaseNotesModal() {
+  const modal = document.getElementById('releaseNotesModal');
+  if (modal) modal.classList.remove('active');
+}
+
+// Global escape key for release modal
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    closeReleaseNotesModal();
+  }
+});

@@ -43,6 +43,7 @@
           <li><a href="#home" class="active">Home</a></li>
           <li><a href="#mission">Mission</a></li>
           <li><a href="#downloads">Downloads</a></li>
+          <li><a href="#releases">Releases</a></li>
           <li><a href="#working-examples">Working Examples</a></li>
           <li><a href="#gallery">Gallery</a></li>
           <li><a href="#tutorials">Tutorials</a></li>
@@ -238,8 +239,8 @@
 
     <!-- SECTION 3: DESKTOP SOFTWARE DOWNLOADS -->
     <section id="downloads">
-      <h2 class="section-title">OpticsLAB Desktop Installers</h2>
-      <p class="section-desc">Download official OpticsLAB 3D optics simulation desktop application for Windows, Linux (Ubuntu/Debian), and macOS.</p>
+      <h2 class="section-title">OpticsLAB Desktop Installers (v0.1.0)</h2>
+      <p class="section-desc">Download official OpticsLAB 3D optics simulation desktop application v0.1.0 for Windows and Linux (Ubuntu/Debian).</p>
 
       <div class="grid-3">
         <!-- Windows Installer -->
@@ -247,12 +248,12 @@
           <div class="os-logo-box">
             <img src="images/windows_logo.svg" alt="Windows Logo" class="os-logo-img">
           </div>
-          <span class="tag">Windows 10 & 11</span>
+          <span class="tag">Windows 10 & 11 (64-bit)</span>
           <h3>Windows Installer</h3>
-          <p>Official 64-bit setup wizard for Windows 10 & 11. Includes full 3D ray tracing engine and optical glass catalog.</p>
-          <button onclick="downloadInstaller('windows')" class="btn btn-primary" style="width: 100%; margin-top: 1.25rem;">
-            Download .exe
-          </button>
+          <p>Official 64-bit setup executable (<code>opticslab.exe</code>) for Windows 10 & 11. Includes full 3D ray tracing engine and optical glass catalog.</p>
+          <a href="installers/v0.1.0/windows/opticslab.exe" download="opticslab.exe" class="btn btn-primary" style="width: 100%; margin-top: 1.25rem;">
+            📥 Download .exe (70.5 MB)
+          </a>
         </div>
 
         <!-- Ubuntu / Linux -->
@@ -261,25 +262,175 @@
             <img src="images/ubuntu_logo.svg" alt="Ubuntu Linux Logo" class="os-logo-img">
           </div>
           <span class="tag">Linux Debian / Ubuntu</span>
-          <h3>Ubuntu Package</h3>
-          <p>Native <code>.deb</code> package for Ubuntu, Debian, Mint, and derivative Linux distributions (64-bit).</p>
-          <button onclick="downloadInstaller('ubuntu')" class="btn btn-primary" style="width: 100%; margin-top: 1.25rem;">
-            Download .deb
-          </button>
+          <h3>Linux DEB Package</h3>
+          <p>Native <code>.deb</code> installer package archive (<code>OpticsLAB_v0.1.0_Linux_DEB.zip</code>) for Ubuntu, Debian, Mint, and derivative Linux distributions.</p>
+          <a href="installers/v0.1.0/linux/OpticsLAB_v0.1.0_Linux_DEB.zip" download="OpticsLAB_v0.1.0_Linux_DEB.zip" class="btn btn-primary" style="width: 100%; margin-top: 1.25rem;">
+            📥 Download Package (491 MB)
+          </a>
         </div>
 
-        <!-- macOS -->
+        <!-- macOS (In Development) -->
         <div class="card" style="text-align: center;">
           <div class="os-logo-box">
             <img src="images/mac_logo.svg" alt="macOS Logo" class="os-logo-img">
           </div>
-          <span class="tag">macOS Intel / Apple Silicon</span>
+          <span class="tag" style="border-color: var(--text-muted); color: var(--text-muted);">macOS (In Development)</span>
           <h3>macOS Package</h3>
-          <p>Universal <code>.dmg</code> disk image for macOS supporting both Intel processors and Apple Silicon M1/M2/M3 chips.</p>
-          <button onclick="downloadInstaller('mac')" class="btn btn-primary" style="width: 100%; margin-top: 1.25rem;">
-            Download .dmg
+          <p>Universal <code>.dmg</code> package for macOS (Intel & Apple Silicon M1/M2/M3) is currently under active development.</p>
+          <button disabled class="btn btn-outline" style="width: 100%; margin-top: 1.25rem; opacity: 0.7; cursor: not-allowed;">
+            🔨 In Development
           </button>
         </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3.5: RELEASES (PYTHON-STYLE RELEASE CENTER) -->
+    <section id="releases">
+      <div class="releases-header-flex">
+        <div>
+          <h2 class="section-title">Software Release Archive</h2>
+          <p class="section-desc">Official Python.org style release version table, versioned installer packages (<code>v0.1.0</code>), and SHA-256 security checksums for OpticsLAB.</p>
+        </div>
+        <!-- OS Filter Buttons -->
+        <div class="release-filter-pills">
+          <button class="filter-pill active" onclick="filterReleases('all', this)">All Releases</button>
+          <button class="filter-pill" onclick="filterReleases('windows', this)">🪟 Windows</button>
+          <button class="filter-pill" onclick="filterReleases('linux', this)">🐧 Linux</button>
+          <button class="filter-pill" onclick="filterReleases('mac', this)">🍎 macOS</button>
+        </div>
+      </div>
+
+      <!-- Active Latest Release Highlight Box -->
+      <div class="latest-release-banner">
+        <div class="latest-release-badge">⭐ Current Release — v0.1.0 Stable</div>
+        <div class="latest-release-main">
+          <div class="latest-release-info">
+            <h3 class="latest-release-title">OpticsLAB v0.1.0</h3>
+            <div class="latest-release-meta">
+              <span class="meta-tag">📅 Version: v0.1.0</span>
+              <span class="meta-tag">⚡ Initial Official Release</span>
+              <span class="meta-tag status-stable">✅ Active Stable Release</span>
+            </div>
+            <p class="latest-release-desc">Official v0.1.0 initial desktop release. Includes full 3D optical ray tracing engine, glass catalog, focal spot plots, wave polarization tracking, and <code>.opl</code> project file loader.</p>
+          </div>
+          <div class="latest-release-actions">
+            <a href="installers/v0.1.0/windows/opticslab.exe" download="opticslab.exe" class="btn btn-primary btn-hero">
+              🪟 Windows Setup (.exe)
+            </a>
+            <a href="installers/v0.1.0/linux/OpticsLAB_v0.1.0_Linux_DEB.zip" download="OpticsLAB_v0.1.0_Linux_DEB.zip" class="btn btn-hero btn-secondary">
+              🐧 Linux DEB (.zip)
+            </a>
+            <span class="btn btn-hero btn-outline" style="opacity: 0.7; cursor: not-allowed; text-decoration: none;">
+              🔨 macOS (In Development)
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Python-Style Releases Table -->
+      <h3 style="font-size: 1.25rem; margin: 2rem 0 1rem; color: var(--text-main); display: flex; align-items: center; gap: 0.5rem;">
+        🐍 Python.org Style Version History Table
+      </h3>
+      <div class="table-responsive">
+        <table class="python-release-table">
+          <thead>
+            <tr>
+              <th>Release Version</th>
+              <th>Status</th>
+              <th>Release Date</th>
+              <th>Notes / Changelog</th>
+              <th>Versioned Installers</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="release-row" data-os="windows linux mac">
+              <td>
+                <div class="ver-name">OpticsLAB v0.1.0</div>
+                <div class="ver-tag">Official Current Release</div>
+              </td>
+              <td><span class="badge badge-stable">Stable Initial Release</span></td>
+              <td>September 2026</td>
+              <td><a href="javascript:void(0)" class="release-notes-link" onclick="openReleaseNotesModal('0.1.0')">📝 Release Notes</a></td>
+              <td>
+                <div class="table-download-buttons">
+                  <a href="installers/v0.1.0/windows/opticslab.exe" download="opticslab.exe" class="tbl-dl-btn" title="Download Windows Installer">🪟 v0.1.0 .exe (70.5M)</a>
+                  <a href="installers/v0.1.0/linux/OpticsLAB_v0.1.0_Linux_DEB.zip" download="OpticsLAB_v0.1.0_Linux_DEB.zip" class="tbl-dl-btn" title="Download Linux DEB Archive">🐧 v0.1.0 .deb (491M)</a>
+                  <span class="tbl-dl-btn" style="opacity: 0.6; cursor: not-allowed;">🍎 In Development</span>
+                </div>
+              </td>
+            </tr>
+
+            <tr class="release-row" data-os="windows linux mac">
+              <td>
+                <div class="ver-name">OpticsLAB v0.2.0</div>
+                <div class="ver-tag">Next Planned Release</div>
+              </td>
+              <td><span class="badge badge-lts">Planned Development</span></td>
+              <td>Q4 2026 (Roadmap)</td>
+              <td><a href="#changelog" class="release-notes-link">📌 View Roadmap</a></td>
+              <td>
+                <div class="table-download-buttons">
+                  <span style="font-size: 0.78rem; color: var(--text-muted);">In active development</span>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Operating System Binaries & SHA-256 Checksum Matrix -->
+      <h3 style="font-size: 1.25rem; margin: 2.5rem 0 1rem; color: var(--text-main); display: flex; align-items: center; gap: 0.5rem;">
+        🔐 v0.1.0 Installer Files & SHA-256 Checksum Matrix
+      </h3>
+      <div class="table-responsive">
+        <table class="python-release-table binary-matrix-table">
+          <thead>
+            <tr>
+              <th>Operating System</th>
+              <th>Package Path</th>
+              <th>Architecture</th>
+              <th>Size</th>
+              <th>SHA-256 Checksum</th>
+              <th>Direct Link</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>🪟 Windows</strong> (10/11)</td>
+              <td><code>installers/v0.1.0/windows/opticslab.exe</code></td>
+              <td>x86_64 / 64-bit</td>
+              <td>70.5 MB</td>
+              <td><code class="hash-code">e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855</code></td>
+              <td>
+                <a href="installers/v0.1.0/windows/opticslab.exe" download="opticslab.exe" class="btn btn-primary" style="padding: 0.35rem 0.85rem; font-size: 0.8rem;">
+                  Download
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>🐧 Linux</strong> (Ubuntu/Debian)</td>
+              <td><code>installers/v0.1.0/linux/OpticsLAB_v0.1.0_Linux_DEB.zip</code></td>
+              <td>amd64 / x86_64</td>
+              <td>491.5 MB</td>
+              <td><code class="hash-code">7d865e959b2466918c9863afca942d0fb89d7c9ac0c99bafc3749504d9726b06</code></td>
+              <td>
+                <a href="installers/v0.1.0/linux/OpticsLAB_v0.1.0_Linux_DEB.zip" download="OpticsLAB_v0.1.0_Linux_DEB.zip" class="btn btn-primary" style="padding: 0.35rem 0.85rem; font-size: 0.8rem;">
+                  Download
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>🍎 macOS</strong> (Intel / Apple Silicon)</td>
+              <td><code>In Active Development</code></td>
+              <td>Universal 2 (x86_64/arm64)</td>
+              <td>—</td>
+              <td><span style="font-size: 0.8rem; color: var(--text-muted);">Pending Release</span></td>
+              <td>
+                <span class="badge badge-legacy">🔨 In Development</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </section>
 
@@ -448,6 +599,17 @@
           <button id="galleryModalClose" class="gallery-modal-close" aria-label="Close modal">&times;</button>
           <img id="galleryModalImg" src="" alt="Enlarged gallery view">
           <div id="galleryModalCaption" class="gallery-modal-caption"></div>
+        </div>
+      </div>
+
+      <!-- Release Notes Lightbox Modal -->
+      <div id="releaseNotesModal" class="gallery-modal" aria-hidden="true">
+        <div class="gallery-modal-content" style="max-width: 650px; padding: 2rem;">
+          <button id="releaseNotesClose" class="gallery-modal-close" onclick="closeReleaseNotesModal()" aria-label="Close modal">&times;</button>
+          <h3 id="releaseNotesTitle" style="margin-bottom: 1rem; color: var(--accent);">OpticsLAB Release Notes</h3>
+          <div id="releaseNotesBody" style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; max-height: 400px; overflow-y: auto;">
+            <!-- Content populated dynamically by openReleaseNotesModal -->
+          </div>
         </div>
       </div>
     </section>
@@ -825,9 +987,9 @@
         <div class="footer-col">
           <h4 class="footer-title">Desktop Downloads</h4>
           <ul class="footer-links">
-            <li><a href="#downloads" onclick="downloadInstaller('windows')">🪟 Windows Installer (.exe)</a></li>
-            <li><a href="#downloads" onclick="downloadInstaller('ubuntu')">🐧 Ubuntu Linux Package (.deb)</a></li>
-            <li><a href="#downloads" onclick="downloadInstaller('mac')">🍎 macOS Package (.dmg)</a></li>
+            <li><a href="installers/v0.1.0/windows/opticslab.exe" download="opticslab.exe">🪟 Windows Installer (.exe)</a></li>
+            <li><a href="installers/v0.1.0/linux/OpticsLAB_v0.1.0_Linux_DEB.zip" download="OpticsLAB_v0.1.0_Linux_DEB.zip">🐧 Linux DEB Package (.zip)</a></li>
+            <li><a href="#downloads">🍎 macOS Package (In Development)</a></li>
             <li><a href="#working-examples">Sample Project Files (.opl)</a></li>
           </ul>
         </div>
