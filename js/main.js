@@ -498,16 +498,16 @@ function downloadInstaller(osType) {
 
   const installerFiles = {
     windows: {
-      path: "installers/v0.1.0/windows/opticslab.exe",
-      filename: "opticslab.exe"
+      path: "installers/v0.2.0/windows/OpticsLAB_Setup_v0.1.0.exe",
+      filename: "OpticsLAB_Setup_v0.2.0.exe"
     },
     ubuntu: {
-      path: "installers/v0.1.0/linux/OpticsLAB_v0.1.0_Linux_DEB.zip",
-      filename: "OpticsLAB_v0.1.0_Linux_DEB.zip"
+      path: "installers/v0.2.0/linux/OpticsLAB_v0.2.0_Linux_DEB.zip",
+      filename: "OpticsLAB_v0.2.0_Linux_DEB.zip"
     },
     linux: {
-      path: "installers/v0.1.0/linux/OpticsLAB_v0.1.0_Linux_DEB.zip",
-      filename: "OpticsLAB_v0.1.0_Linux_DEB.zip"
+      path: "installers/v0.2.0/linux/OpticsLAB_v0.2.0_Linux_DEB.zip",
+      filename: "OpticsLAB_v0.2.0_Linux_DEB.zip"
     },
     a11y_guide: {
       filename: "OpticsLAB_Accessibility_Standards_Guide.txt",
@@ -538,7 +538,7 @@ function downloadInstaller(osType) {
   }
 }
 
-// Python-Style Release Filter Engine
+// Version Release Filter Engine
 function filterReleases(osType, pillElem) {
   const pills = document.querySelectorAll('.filter-pill');
   pills.forEach(p => p.classList.remove('active'));
@@ -562,6 +562,17 @@ function openReleaseNotesModal(version) {
   const body = document.getElementById('releaseNotesBody');
 
   const notesData = {
+    '0.2.0': `
+      <p style="margin-bottom: 0.75rem;"><strong>OpticsLAB v0.2.0 (Official Current Release)</strong> — Released September 2026</p>
+      <ul style="padding-left: 1.2rem; margin-bottom: 1rem;">
+        <li>🖼️ <strong>Application Splash Screen:</strong> Brand-new desktop launch splash screen for smooth startup feedback.</li>
+        <li>🧩 <strong>Segmented Design Layout:</strong> Modular UI structure with clean segmented toolbars, dockable windows, and refined navigation.</li>
+        <li>⚡ <strong>Instant Component Previews:</strong> Live real-time visual previews of optical components (lenses, mirrors, prisms) before adding to the 3D bench.</li>
+        <li>🪟 <strong>Windows 64-bit Installer:</strong> Native setup wizard executable (<code>OpticsLAB_Setup_v0.2.0.exe</code> - 71.1 MB).</li>
+        <li>🐧 <strong>Linux DEB Package:</strong> Native Debian/Ubuntu installer archive (<code>OpticsLAB_v0.2.0_Linux_DEB.zip</code> - 133.8 MB).</li>
+      </ul>
+      <p><em>Windows Installer Hash (SHA-256):</em> <code style="font-size: 0.75rem;">f74db92ee3370f778176bc4488e65d2c917876a0f27d272245ae1c1d99c3656e</code></p>
+    `,
     '0.1.0': `
       <p style="margin-bottom: 0.75rem;"><strong>OpticsLAB v0.1.0 (Official Initial Release)</strong> — Released September 2026</p>
       <ul style="padding-left: 1.2rem; margin-bottom: 1rem;">
@@ -572,14 +583,6 @@ function openReleaseNotesModal(version) {
         <li>💾 <strong>Project File Format:</strong> Export and load <code>.opl</code> 3D optical bench setups.</li>
       </ul>
       <p><em>Windows Installer Hash (SHA-256):</em> <code style="font-size: 0.75rem;">e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855</code></p>
-    `,
-    '0.2.0': `
-      <p style="margin-bottom: 0.75rem;"><strong>OpticsLAB v0.2.0 (Planned Next Release)</strong> — Target: Q4 2026</p>
-      <ul style="padding-left: 1.2rem; margin-bottom: 1rem;">
-        <li>⚡ Multi-core GPU accelerated ray tracing engine.</li>
-        <li>🔭 Advanced telescope mirror system design presets.</li>
-        <li>📊 High precision spectral dispersion plotters.</li>
-      </ul>
     `
   };
 
