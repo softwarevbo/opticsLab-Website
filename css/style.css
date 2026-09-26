@@ -957,6 +957,31 @@ code {
   border: 1px solid var(--border);
 }
 
+/* File Download Path Badge */
+.file-path-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  color: var(--accent);
+  padding: 0.35rem 0.75rem;
+  border-radius: 8px;
+  font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 0.78rem;
+  margin: 0.5rem 0 0.85rem;
+  word-break: break-all;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.file-path-badge code {
+  background: transparent;
+  border: none;
+  padding: 0;
+  color: inherit;
+  font-size: 1em;
+}
+
 /* Tags & Buttons */
 .tag {
   display: inline-flex;

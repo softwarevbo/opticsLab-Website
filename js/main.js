@@ -133,7 +133,24 @@ function initFAQ() {
 
 // Working Examples Downloader (.opl project file format)
 function downloadSampleFile(sampleType) {
-  // Empty button action - no file or data payload needed
+  const sampleMap = {
+    'cooke_triplet': { path: 'assets/cooke_triplet_lens_design.opl', filename: 'cooke_triplet_lens_design.opl' },
+    'petzval_lens': { path: 'assets/petzvalLens.opl', filename: 'petzvalLens.opl' },
+    'prism_setup': { path: 'assets/prism_setup.opl', filename: 'prism_setup.opl' },
+    'lens_setup': { path: 'assets/lens_setup.opl', filename: 'lens_setup.opl' },
+    'telescope_setup': { path: 'assets/telescope_setup.opl', filename: 'telescope_setup.opl' },
+    'polarization_setup': { path: 'assets/polarization_setup.opl', filename: 'polarization_setup.opl' }
+  };
+
+  const item = sampleMap[sampleType];
+  if (!item) return;
+
+  const a = document.createElement('a');
+  a.href = item.path;
+  a.download = item.filename;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
 }
 
 // Gallery Lightbox Modal
@@ -492,22 +509,22 @@ function initAccessibilityWidget() {
 // Desktop Software Installers Downloader (Windows, Ubuntu/Linux, macOS)
 function downloadInstaller(osType) {
   if (osType === 'mac') {
-    alert("OpticsLAB for macOS is currently under active development and will be released in an upcoming version!");
+    alert("OpticsLAB for macOS is currently under development and will be released in an upcoming version!");
     return;
   }
 
   const installerFiles = {
     windows: {
-      path: "installers/v0.2.0/windows/OpticsLAB_Setup_v0.1.0.exe",
-      filename: "OpticsLAB_Setup_v0.2.0.exe"
+      path: "installers/v0.3.0/windows/OpticsLAB_Setup_v0.3.0.exe",
+      filename: "OpticsLAB_Setup_v0.3.0.exe"
     },
     ubuntu: {
-      path: "installers/v0.2.0/linux/OpticsLAB_v0.2.0_Linux_DEB.zip",
-      filename: "OpticsLAB_v0.2.0_Linux_DEB.zip"
+      path: "installers/v0.3.0/linux/OpticsLAB_v0.3.0_Linux_DEB.zip",
+      filename: "OpticsLAB_v0.3.0_Linux_DEB.zip"
     },
     linux: {
-      path: "installers/v0.2.0/linux/OpticsLAB_v0.2.0_Linux_DEB.zip",
-      filename: "OpticsLAB_v0.2.0_Linux_DEB.zip"
+      path: "installers/v0.3.0/linux/OpticsLAB_v0.3.0_Linux_DEB.zip",
+      filename: "OpticsLAB_v0.3.0_Linux_DEB.zip"
     },
     a11y_guide: {
       filename: "OpticsLAB_Accessibility_Standards_Guide.txt",
@@ -562,13 +579,26 @@ function openReleaseNotesModal(version) {
   const body = document.getElementById('releaseNotesBody');
 
   const notesData = {
+    '0.3.0': `
+      <p style="margin-bottom: 0.75rem;"><strong>OpticsLAB v0.3.0 (Official Current Release)</strong> — Released September 2026</p>
+      <ul style="padding-left: 1.2rem; margin-bottom: 1rem;">
+        <li>🛡️ <strong>Secure .opl File Generation & Creation:</strong> Implemented strict XML/JSON AST schema validation, memory-safe project file generation, safe file system sandboxing, and input sanitization to block malicious file injection during .opl file creation & loading.</li>
+        <li>🔐 <strong>Cryptographic Checksum Verification:</strong> Integrated SHA-256 integrity checks and digital signatures for all .opl project exports and desktop installer packages.</li>
+        <li>🖼️ <strong>Application Splash Screen & Segmented UI:</strong> Refined launching splash screen, modular segmented workbench layout, and instant real-time component previews.</li>
+        <li>🪟 <strong>Windows 64-bit Installer:</strong> Native setup wizard executable (<code>installers/v0.3.0/windows/OpticsLAB_Setup_v0.3.0.exe</code> - 218.2 MB).</li>
+        <li>🐧 <strong>Linux DEB Package:</strong> Native Debian/Ubuntu package archive (<code>installers/v0.3.0/linux/OpticsLAB_v0.3.0_Linux_DEB.zip</code> - 139.6 MB).</li>
+        <li>📁 <strong>Assets .opl Library:</strong> Added pre-built <code>.opl</code> project assets into GUI including Cooke Triplet Lens, Petzval Lens, Prism Setup, and Polarization setups.</li>
+      </ul>
+      <p><em>Windows Installer Hash (SHA-256):</em> <code style="font-size: 0.75rem;">db367535de4d4c05fdb8d667d03a73c58109593f6c23ad42a57ceb701b8a90eb</code></p>
+      <p style="margin-top: 0.3rem;"><em>Linux Package Hash (SHA-256):</em> <code style="font-size: 0.75rem;">71b0933f3fc97adf68e55c84a6dcdcc7d1f755e6cc4b93628a6a916d3e7a3d1f</code></p>
+    `,
     '0.2.0': `
-      <p style="margin-bottom: 0.75rem;"><strong>OpticsLAB v0.2.0 (Official Current Release)</strong> — Released September 2026</p>
+      <p style="margin-bottom: 0.75rem;"><strong>OpticsLAB v0.2.0 (Previous Stable Release)</strong> — Released September 2026</p>
       <ul style="padding-left: 1.2rem; margin-bottom: 1rem;">
         <li>🖼️ <strong>Application Splash Screen:</strong> Brand-new desktop launch splash screen for smooth startup feedback.</li>
         <li>🧩 <strong>Segmented Design Layout:</strong> Modular UI structure with clean segmented toolbars, dockable windows, and refined navigation.</li>
         <li>⚡ <strong>Instant Component Previews:</strong> Live real-time visual previews of optical components (lenses, mirrors, prisms) before adding to the 3D bench.</li>
-        <li>🪟 <strong>Windows 64-bit Installer:</strong> Native setup wizard executable (<code>OpticsLAB_Setup_v0.2.0.exe</code> - 71.1 MB).</li>
+        <li>🪟 <strong>Windows 64-bit Installer:</strong> Native setup wizard executable (<code>OpticsLAB_Setup_v0.1.0.exe</code> - 71.1 MB).</li>
         <li>🐧 <strong>Linux DEB Package:</strong> Native Debian/Ubuntu installer archive (<code>OpticsLAB_v0.2.0_Linux_DEB.zip</code> - 133.8 MB).</li>
       </ul>
       <p><em>Windows Installer Hash (SHA-256):</em> <code style="font-size: 0.75rem;">f74db92ee3370f778176bc4488e65d2c917876a0f27d272245ae1c1d99c3656e</code></p>
