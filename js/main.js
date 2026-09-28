@@ -132,7 +132,10 @@ function initFAQ() {
 }
 
 // Working Examples Downloader (.opl project file format)
-function downloadSampleFile(sampleType) {
+function downloadSampleFile(sampleType, event) {
+  if (event && event.preventDefault) {
+    event.preventDefault();
+  }
   const sampleMap = {
     'cooke_triplet': { path: 'assets/cooke_triplet_lens_design.opl', filename: 'cooke_triplet_lens_design.opl' },
     'petzval_lens': { path: 'assets/petzvalLens.opl', filename: 'petzvalLens.opl' },
