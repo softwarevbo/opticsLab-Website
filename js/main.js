@@ -582,18 +582,43 @@ function openReleaseNotesModal(version) {
   const body = document.getElementById('releaseNotesBody');
 
   const notesData = {
+    '0.4.0': `
+      <p style="margin-bottom: 0.75rem;"><strong>OpticsLAB v0.4.0 (Version 4 Release)</strong> — Released September 2026</p>
+      <ul style="padding-left: 1.2rem; margin-bottom: 1rem;">
+        <li>🧊 <strong>XYZ Axis Cube for Rotation Axis:</strong> Interactive 3D XYZ orientation cube for precise rotation axis visual orientation and manipulation.</li>
+        <li>👁️ <strong>Component Preview on Menu Click:</strong> Component visual preview displays automatically when selected from the menu.</li>
+        <li>📁 <strong>Recent Opened Directories:</strong> Quick access menu and tracking for recently opened project directories.</li>
+        <li>🛡️ <strong>File Corruption Prevention:</strong> Enhanced file system integrity guards and atomic saving to prevent file corruption.</li>
+      </ul>
+    `,
+    '4.0': `
+      <p style="margin-bottom: 0.75rem;"><strong>OpticsLAB v0.4.0 (Version 4 Release)</strong> — Released September 2026</p>
+      <ul style="padding-left: 1.2rem; margin-bottom: 1rem;">
+        <li>🧊 <strong>XYZ Axis Cube for Rotation Axis:</strong> Interactive 3D XYZ orientation cube for precise rotation axis visual orientation and manipulation.</li>
+        <li>👁️ <strong>Component Preview on Menu Click:</strong> Component visual preview displays automatically when selected from the menu.</li>
+        <li>📁 <strong>Recent Opened Directories:</strong> Quick access menu and tracking for recently opened project directories.</li>
+        <li>🛡️ <strong>File Corruption Prevention:</strong> Enhanced file system integrity guards and atomic saving to prevent file corruption.</li>
+      </ul>
+    `,
+    '4': `
+      <p style="margin-bottom: 0.75rem;"><strong>OpticsLAB v0.4.0 (Version 4 Release)</strong> — Released September 2026</p>
+      <ul style="padding-left: 1.2rem; margin-bottom: 1rem;">
+        <li>🧊 <strong>XYZ Axis Cube for Rotation Axis:</strong> Interactive 3D XYZ orientation cube for precise rotation axis visual orientation and manipulation.</li>
+        <li>👁️ <strong>Component Preview on Menu Click:</strong> Component visual preview displays automatically when selected from the menu.</li>
+        <li>📁 <strong>Recent Opened Directories:</strong> Quick access menu and tracking for recently opened project directories.</li>
+        <li>🛡️ <strong>File Corruption Prevention:</strong> Enhanced file system integrity guards and atomic saving to prevent file corruption.</li>
+      </ul>
+    `,
     '0.3.0': `
-      <p style="margin-bottom: 0.75rem;"><strong>OpticsLAB v0.3.0 (Official Current Release)</strong> — Released September 2026</p>
+      <p style="margin-bottom: 0.75rem;"><strong>OpticsLAB v0.3.0 (Official Release)</strong> — Released September 2026</p>
       <ul style="padding-left: 1.2rem; margin-bottom: 1rem;">
         <li>🛡️ <strong>Secure .opl File Generation & Creation:</strong> Implemented strict XML/JSON AST schema validation, memory-safe project file generation, safe file system sandboxing, and input sanitization to block malicious file injection during .opl file creation & loading.</li>
-        <li>🔐 <strong>Cryptographic Checksum Verification:</strong> Integrated SHA-256 integrity checks and digital signatures for all .opl project exports and desktop installer packages.</li>
+        <li>🔐 <strong>File Integrity Verification:</strong> Integrated file integrity checks for all .opl project exports and desktop installer packages.</li>
         <li>🖼️ <strong>Application Splash Screen & Segmented UI:</strong> Refined launching splash screen, modular segmented workbench layout, and instant real-time component previews.</li>
         <li>🪟 <strong>Windows 64-bit Installer:</strong> Native setup wizard executable (<code>installers/v0.3.0/windows/OpticsLAB_Setup_v0.3.0.exe</code> - 218.2 MB).</li>
         <li>🐧 <strong>Linux DEB Package:</strong> Native Debian/Ubuntu package archive (<code>installers/v0.3.0/linux/OpticsLAB_v0.3.0_Linux_DEB.zip</code> - 139.6 MB).</li>
         <li>📁 <strong>Assets .opl Library:</strong> Added pre-built <code>.opl</code> project assets into GUI including Cooke Triplet Lens, Petzval Lens, Prism Setup, and Polarization setups.</li>
       </ul>
-      <p><em>Windows Installer Hash (SHA-256):</em> <code style="font-size: 0.75rem;">db367535de4d4c05fdb8d667d03a73c58109593f6c23ad42a57ceb701b8a90eb</code></p>
-      <p style="margin-top: 0.3rem;"><em>Linux Package Hash (SHA-256):</em> <code style="font-size: 0.75rem;">71b0933f3fc97adf68e55c84a6dcdcc7d1f755e6cc4b93628a6a916d3e7a3d1f</code></p>
     `,
     '0.2.0': `
       <p style="margin-bottom: 0.75rem;"><strong>OpticsLAB v0.2.0 (Previous Stable Release)</strong> — Released September 2026</p>
@@ -604,7 +629,6 @@ function openReleaseNotesModal(version) {
         <li>🪟 <strong>Windows 64-bit Installer:</strong> Native setup wizard executable (<code>OpticsLAB_Setup_v0.1.0.exe</code> - 71.1 MB).</li>
         <li>🐧 <strong>Linux DEB Package:</strong> Native Debian/Ubuntu installer archive (<code>OpticsLAB_v0.2.0_Linux_DEB.zip</code> - 133.8 MB).</li>
       </ul>
-      <p><em>Windows Installer Hash (SHA-256):</em> <code style="font-size: 0.75rem;">f74db92ee3370f778176bc4488e65d2c917876a0f27d272245ae1c1d99c3656e</code></p>
     `,
     '0.1.0': `
       <p style="margin-bottom: 0.75rem;"><strong>OpticsLAB v0.1.0 (Official Initial Release)</strong> — Released September 2026</p>
@@ -615,7 +639,6 @@ function openReleaseNotesModal(version) {
         <li>🔬 <strong>Optical Catalog & Wave Polarization:</strong> Standard SCHOTT glass material indexes (N-BK7, F2) and 3D Poincaré sphere polarization tracker.</li>
         <li>💾 <strong>Project File Format:</strong> Export and load <code>.opl</code> 3D optical bench setups.</li>
       </ul>
-      <p><em>Windows Installer Hash (SHA-256):</em> <code style="font-size: 0.75rem;">e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855</code></p>
     `
   };
 
